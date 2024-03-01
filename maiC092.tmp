@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://n1ct28ovmxkg"]
+
+[ext_resource type="PackedScene" uid="uid://bb808e4ua365l" path="res://SubScenes/player.tscn" id="1_p8ryk"]
+[ext_resource type="Script" path="res://main.gd" id="1_yns6q"]
+[ext_resource type="PackedScene" uid="uid://di8eglt03pfru" path="res://SubScenes/enemy.tscn" id="4_bq38w"]
+[ext_resource type="Script" path="res://BulletManager.gd" id="4_qnmgc"]
+[ext_resource type="Script" path="res://RopeManager.gd" id="6_okkmi"]
+[ext_resource type="Texture2D" uid="uid://2qoic78vhw2n" path="res://Tilemap/monochrome-transparent_packed.png" id="7_41iiw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_as6uq"]
+radius = 27.0185
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_yns6q")
+
+[node name="Player" parent="." instance=ExtResource("1_p8ryk")]
+position = Vector2(1.52588e-05, 128)
+
+[node name="Enemy" parent="." instance=ExtResource("4_bq38w")]
+
+[node name="BulletManager" type="Node" parent="."]
+script = ExtResource("4_qnmgc")
+
+[node name="RopeManager" type="Node2D" parent="."]
+script = ExtResource("6_okkmi")
+
+[node name="Mass" type="RigidBody2D" parent="."]
+inertia = 2.0
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Mass"]
+scale = Vector2(4, 4)
+texture = ExtResource("7_41iiw")
+region_enabled = true
+region_rect = Rect2(560, 224, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mass"]
+shape = SubResource("CircleShape2D_as6uq")

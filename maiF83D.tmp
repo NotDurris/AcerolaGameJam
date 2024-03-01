@@ -1,0 +1,69 @@
+[gd_scene load_steps=13 format=3 uid="uid://n1ct28ovmxkg"]
+
+[ext_resource type="PackedScene" uid="uid://bb808e4ua365l" path="res://Actors/player.tscn" id="1_p8ryk"]
+[ext_resource type="Script" path="res://main.gd" id="1_yns6q"]
+[ext_resource type="Script" path="res://BulletManager.gd" id="4_qnmgc"]
+[ext_resource type="PackedScene" uid="uid://bk7uofp4qfkl3" path="res://Actors/mass.tscn" id="5_op1xv"]
+[ext_resource type="Script" path="res://UI/UI.gd" id="6_dc20y"]
+[ext_resource type="PackedScene" uid="uid://cnp7min2dntc4" path="res://Actors/Enemies/MeleeEnemy.tscn" id="7_50s4y"]
+[ext_resource type="PackedScene" uid="uid://ctgkgr6fcf55r" path="res://UI/upgrades_ui.tscn" id="8_lc8b0"]
+[ext_resource type="Script" path="res://Pickups/MeatSpawner.gd" id="8_ybafg"]
+[ext_resource type="Script" path="res://Actors/Stats.gd" id="9_uutgb"]
+[ext_resource type="Script" path="res://Stats/MassStats.gd" id="10_gm0q2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nnks"]
+bg_color = Color(0.192157, 0.0784314, 0.0509804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wne0"]
+bg_color = Color(0.592157, 0.109804, 0.129412, 1)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_yns6q")
+
+[node name="BulletManager" type="Node" parent="."]
+script = ExtResource("4_qnmgc")
+
+[node name="Mass" parent="." instance=ExtResource("5_op1xv")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("6_dc20y")
+
+[node name="MeatIndicator" type="ProgressBar" parent="UI"]
+offset_left = 1002.0
+offset_top = 644.0
+offset_right = 1150.0
+offset_bottom = 789.0
+rotation = -1.5708
+theme_override_styles/background = SubResource("StyleBoxFlat_0nnks")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8wne0")
+show_percentage = false
+
+[node name="HealthIndicator" type="ProgressBar" parent="UI"]
+offset_left = 9.0
+offset_top = 644.0
+offset_right = 157.0
+offset_bottom = 789.0
+rotation = -1.5708
+theme_override_styles/background = SubResource("StyleBoxFlat_0nnks")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8wne0")
+show_percentage = false
+
+[node name="MeatSpawner" type="Node" parent="."]
+script = ExtResource("8_ybafg")
+
+[node name="Enemy" parent="." instance=ExtResource("7_50s4y")]
+position = Vector2(840, 252)
+
+[node name="Player" parent="." instance=ExtResource("1_p8ryk")]
+position = Vector2(-291, 13)
+
+[node name="UpgradesUI" parent="." instance=ExtResource("8_lc8b0")]
+
+[node name="PlayerStats" type="Node" parent="."]
+script = ExtResource("9_uutgb")
+
+[node name="MassStats" type="Node" parent="."]
+script = ExtResource("10_gm0q2")
+
+[node name="TowerStats" type="Node" parent="."]
+script = ExtResource("9_uutgb")

@@ -1,0 +1,63 @@
+[gd_scene load_steps=12 format=3 uid="uid://cnhc0rg5ihi4j"]
+
+[ext_resource type="Script" path="res://Player/PlayerController.gd" id="1_qu88m"]
+[ext_resource type="PackedScene" uid="uid://b7suwbwvgp1q2" path="res://Sprites/CharacterAnimations.aseprite" id="2_3gdc0"]
+[ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="3_0uwaf"]
+[ext_resource type="Script" path="res://Player/PlayerStateMachine/Idle.gd" id="3_s5pac"]
+[ext_resource type="Script" path="res://Player/PlayerStateMachine/Walk.gd" id="5_i68on"]
+[ext_resource type="Script" path="res://Player/PlayerStateMachine/Fall.gd" id="6_03w0e"]
+[ext_resource type="Script" path="res://Player/PlayerStateMachine/Run.gd" id="6_7d6a5"]
+[ext_resource type="Script" path="res://Player/PlayerStateMachine/Jump.gd" id="7_3ehdc"]
+[ext_resource type="Script" path="res://Player/PlayerStateMachine/Push.gd" id="8_yfwnq"]
+[ext_resource type="Script" path="res://SceneItems/Camera/CameraHolder.gd" id="10_5c48x"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7e2rf"]
+
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
+floor_constant_speed = true
+script = ExtResource("1_qu88m")
+
+[node name="CharacterAnimations" parent="." instance=ExtResource("2_3gdc0")]
+transform = Transform3D(3.04723, 0, 0, 0, 3.04723, 0, 0, 0, 1, 0, 0.78158, 0)
+texture_filter = 0
+animation = &"Stopping"
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_7e2rf")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_0uwaf")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_s5pac")
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("5_i68on")
+
+[node name="Run" type="Node" parent="StateMachine"]
+script = ExtResource("6_7d6a5")
+
+[node name="Fall" type="Node" parent="StateMachine"]
+script = ExtResource("6_03w0e")
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource("7_3ehdc")
+
+[node name="Stop" type="Node" parent="StateMachine"]
+script = ExtResource("8_yfwnq")
+
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="CoyoteeTime" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="CameraTransform" type="RemoteTransform3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.74207, 6.32627)
+update_rotation = false
+update_scale = false
+script = ExtResource("10_5c48x")

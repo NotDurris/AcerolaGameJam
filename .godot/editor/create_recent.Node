@@ -1,0 +1,14 @@
+Node3D
+WorldEnvironment
+Node
+AnimationTree
+MeshInstance3D
+Sprite3D
+CollisionShape3D
+CharacterBody3D
+ColorRect
+CanvasLayer
+RemoteTransform3D
+DirectionalLight3D
+Camera3D
+StaticBody3D
