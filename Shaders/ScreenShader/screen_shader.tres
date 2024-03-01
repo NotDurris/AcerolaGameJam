@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c8pa3hmo1y5sc"]
+
+[ext_resource type="Shader" path="res://Shaders/ScreenShader/FoggyEdge.gdshader" id="1_8og1d"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_8og1d")
+shader_parameter/edge_threshold = 0.1
+shader_parameter/fog_depth_threshold = 20.0
+shader_parameter/fog_falloff = 0.5
+shader_parameter/line_color = Color(0.0431373, 0.0901961, 0.117647, 1)
+shader_parameter/background_color = Color(0.847059, 0.803922, 0.439216, 1)
+shader_parameter/background_line_color = Color(0.631373, 0.537255, 0.223529, 1)

@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://btpy4hu7axk8g"]
+
+[ext_resource type="Shader" path="res://Shaders/ObjectShader/flat_colour.gdshader" id="1_so3aj"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_so3aj")
+shader_parameter/colour = Color(0.0823529, 0.211765, 0.27451, 0.5)

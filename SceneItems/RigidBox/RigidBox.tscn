@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc3uy0uivraxn"]
+[gd_scene load_steps=5 format=3 uid="uid://cc3uy0uivraxn"]
 
 [ext_resource type="Script" path="res://SceneItems/RigidBox/RigidBox.gd" id="1_088vc"]
+[ext_resource type="Material" uid="uid://c158qywkkv1j7" path="res://Shaders/ObjectShader/Mid.tres" id="2_h56hb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o45h2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hgdi4"]
+material = ExtResource("2_h56hb")
 
 [node name="RigidBox" type="CharacterBody3D"]
 axis_lock_angular_x = true

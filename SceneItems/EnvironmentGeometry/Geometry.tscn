@@ -1,9 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://hlqab4swufb4"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_gacrq"]
+[ext_resource type="Material" uid="uid://btpy4hu7axk8g" path="res://Shaders/ObjectShader/Dark.tres" id="1_wldsv"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucaqm"]
-albedo_color = Color(0.294118, 0.294118, 0.294118, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_nl5iw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h7dua"]
 
@@ -12,8 +11,8 @@ albedo_color = Color(0.294118, 0.294118, 0.294118, 1)
 [node name="StaticBody" type="StaticBody3D" parent="."]
 
 [node name="Mesh" type="MeshInstance3D" parent="StaticBody"]
-mesh = SubResource("BoxMesh_gacrq")
-surface_material_override/0 = SubResource("StandardMaterial3D_ucaqm")
+mesh = SubResource("BoxMesh_nl5iw")
+surface_material_override/0 = ExtResource("1_wldsv")
 
 [node name="Collision" type="CollisionShape3D" parent="StaticBody"]
 shape = SubResource("BoxShape3D_h7dua")

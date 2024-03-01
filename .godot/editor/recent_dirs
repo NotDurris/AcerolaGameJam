@@ -1,3 +1,6 @@
+res://Shaders/ScreenShader
+res://Shaders/ObjectShader
+res://Scripts
 res://Shaders
 res://Player/PlayerStateMachine
 res://Animations
