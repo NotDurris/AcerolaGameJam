@@ -8,9 +8,9 @@ uniform sampler2D NORMAL_TEXTURE : hint_normal_roughness_texture, filter_linear_
 uniform float edge_threshold = 0.1;
 uniform float fog_depth_threshold = 20.0;
 uniform float fog_falloff = 0.5;
-uniform vec3 line_color: source_color = vec3(1.0);
-uniform vec3 background_color: source_color = vec3(0.0);
-uniform vec3 background_line_color: source_color = vec3(0.0);
+uniform vec3 line_colour: source_color = vec3(1.0);
+uniform vec3 background_colour: source_color = vec3(0.0);
+uniform vec3 background_line_colour: source_color = vec3(0.0);
 
 const mat3 sobel_y = mat3(
 	vec3(1.0, 0.0, -1.0),
@@ -39,7 +39,7 @@ void vertex(){
 
 void fragment() {
 	vec2 uv = SCREEN_UV;
-	vec4 screen_color = texture(SCREEN_TEXTURE, uv);
+	vec4 screen_colour = texture(SCREEN_TEXTURE, uv);
 	
 	vec3 normal = texture(NORMAL_TEXTURE, uv).rgb;
 	normal = normal * 2.0 - 1.0;
@@ -98,15 +98,15 @@ void fragment() {
 		float depth_thresh = (depth - fog_depth_threshold) * fog_falloff;
 		float depth_multiplier = clamp(depth_thresh,0,1) * clamp(depth_thresh,0,1);
 		if (edge > edge_threshold || edge_1 > edge_threshold) {
-			ALBEDO = mix(line_color, background_line_color, depth_multiplier);
+			ALBEDO = mix(line_colour, background_line_colour, depth_multiplier);
 		}else{
-			ALBEDO = mix(screen_color.xyz, background_color, depth_multiplier);
+			ALBEDO = mix(screen_colour.xyz, background_colour, depth_multiplier);
 		}
 	}else {
 		if (edge > edge_threshold || edge_1 > edge_threshold) {
-			ALBEDO = line_color;
+			ALBEDO = line_colour;
 		}else{
-			ALBEDO = screen_color.xyz;
+			ALBEDO = screen_colour.xyz;
 		}
 	}
 }
