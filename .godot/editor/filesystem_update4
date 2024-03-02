@@ -5,9 +5,13 @@ res://Shaders/ObjectShader/Mid.tres
 res://Shaders/ObjectShader/Dark.tres
 res://Shaders/ScreenShader/FoggyEdge.gdshader
 res://Shaders/ScreenShader/screen_shader.tres
-res://Scripts/ColourController.gd
 res://Scenes/MainMenu.tscn
 res://Scenes/scene_switcher.tscn
 res://Player/player.tscn
 res://SceneItems/RigidBox/RigidBox.tscn
 res://SceneItems/EnvironmentGeometry/Geometry.tscn
+res://SceneItems/EnvironmentGeometry/hallway.tscn
+res://Scripts/ColourController.gd
+res://Shaders/ObjectShader/Shader/flat_colour_jaggy.gdshader
+res://Shaders/ObjectShader/Material/Jaggy.tres
+res://Shaders/ObjectShader/Shader/flat_colour.gdshader

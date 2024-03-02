@@ -8,6 +8,7 @@ extends Node
 
 @export var colour : Color :
 	set(value):
+		# I Know Mr.Rola
 		var hsv_colour = rgb2hsv(value)
 		hsv_colour.y = 1
 		hsv_colour.z = 0.5
@@ -20,10 +21,10 @@ extends Node
 			complementary_colour.x -= 0.5
 		else:
 			complementary_colour.x += 0.5
-		screen_mat.set_shader_parameter("background_colour", Color.from_hsv(complementary_colour.x, complementary_colour.y-0.6,complementary_colour.z))
+		screen_mat.set_shader_parameter("background_colour", Color.from_hsv(complementary_colour.x, complementary_colour.y-0.6,complementary_colour.z-0.2))
 		
 		var complemen2ry_colour = hsv_colour
-		complemen2ry_colour.x += (hsv_colour.x - complementary_colour.x) * 0.7
+		complemen2ry_colour.x += (hsv_colour.x - complementary_colour.x) * 0.8
 		
 		screen_mat.set_shader_parameter("line_colour", Color.from_hsv(complemen2ry_colour.x, complemen2ry_colour.y-0.4,complemen2ry_colour.z))
 		screen_mat.set_shader_parameter("background_line_colour", Color.from_hsv(complemen2ry_colour.x, complemen2ry_colour.y-0.4,complemen2ry_colour.z-0.4))

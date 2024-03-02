@@ -1,3 +1,7 @@
+res://SceneItems/Goal
+res://Shaders/ObjectShader/Shader
+res://Shaders/ObjectShader/Material
+res://SceneItems/EnvironmentGeometry
 res://Shaders/ScreenShader
 res://Shaders/ObjectShader
 res://Scripts
@@ -5,7 +9,6 @@ res://Shaders
 res://Player/PlayerStateMachine
 res://Animations
 res://Assets
-res://SceneItems/EnvironmentGeometry
 res://SceneItems/Camera
 res://Sprites
 D:/SteamLibrary/steamapps/common/Aseprite

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddc4pp5odi6u5"]
+
+[ext_resource type="PackedScene" uid="uid://hlqab4swufb4" path="res://SceneItems/EnvironmentGeometry/Geometry.tscn" id="1_hlvsi"]
+
+[node name="Hallway" type="Node3D"]
+
+[node name="Geometry" parent="." instance=ExtResource("1_hlvsi")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Geometry2" parent="." instance=ExtResource("1_hlvsi")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Geometry3" parent="." instance=ExtResource("1_hlvsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="Geometry4" parent="." instance=ExtResource("1_hlvsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

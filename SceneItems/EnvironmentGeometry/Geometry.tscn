@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://hlqab4swufb4"]
 
-[ext_resource type="Material" uid="uid://btpy4hu7axk8g" path="res://Shaders/ObjectShader/Dark.tres" id="1_wldsv"]
+[ext_resource type="Material" uid="uid://btpy4hu7axk8g" path="res://Shaders/ObjectShader/Material/Dark.tres" id="1_wldsv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nl5iw"]
 

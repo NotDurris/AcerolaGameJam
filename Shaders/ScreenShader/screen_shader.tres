@@ -6,8 +6,8 @@
 render_priority = 0
 shader = ExtResource("1_8og1d")
 shader_parameter/edge_threshold = 0.1
-shader_parameter/fog_depth_threshold = 20.0
+shader_parameter/fog_depth_threshold = 5.0
 shader_parameter/fog_falloff = 0.5
-shader_parameter/line_color = Color(0.0431373, 0.0901961, 0.117647, 1)
-shader_parameter/background_color = Color(0.847059, 0.803922, 0.439216, 1)
-shader_parameter/background_line_color = Color(0.631373, 0.537255, 0.223529, 1)
+shader_parameter/line_colour = Color(0.5, 0.303594, 0.2, 1)
+shader_parameter/background_colour = Color(0.5, 0.3, 0.410937, 1)
+shader_parameter/background_line_colour = Color(0.1, 0.0607188, 0.04, 1)

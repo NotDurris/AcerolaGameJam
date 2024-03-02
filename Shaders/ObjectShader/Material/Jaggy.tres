@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ct2cmt0cj58ko"]
+
+[ext_resource type="Shader" path="res://Shaders/ObjectShader/Shader/flat_colour_jaggy.gdshader" id="1_es5x7"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_es5x7")
+shader_parameter/colour = Color(1, 1, 1, 1)
+shader_parameter/magnitude = 0.1
+shader_parameter/time_step = 0.009

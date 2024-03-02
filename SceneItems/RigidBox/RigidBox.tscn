@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cc3uy0uivraxn"]
 
 [ext_resource type="Script" path="res://SceneItems/RigidBox/RigidBox.gd" id="1_088vc"]
-[ext_resource type="Material" uid="uid://c158qywkkv1j7" path="res://Shaders/ObjectShader/Mid.tres" id="2_h56hb"]
+[ext_resource type="Material" uid="uid://c158qywkkv1j7" path="res://Shaders/ObjectShader/Material/Mid.tres" id="2_h56hb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o45h2"]
 

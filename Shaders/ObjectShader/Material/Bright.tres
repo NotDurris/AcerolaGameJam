@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dnw70yeram28j"]
+
+[ext_resource type="Shader" path="res://Shaders/ObjectShader/Shader/flat_colour.gdshader" id="1_tkeuv"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_tkeuv")
+shader_parameter/colour = Color(0, 0.7, 0.311719, 1)

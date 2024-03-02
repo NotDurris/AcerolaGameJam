@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://t00ol4bs3rua"]
+
+[ext_resource type="Material" uid="uid://ct2cmt0cj58ko" path="res://Shaders/ObjectShader/Material/Jaggy.tres" id="1_pu6c8"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_vx86s"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_5g4ig"]
+material = ExtResource("1_pu6c8")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="Curve" id="Curve_yobio"]
+_data = [Vector2(0, 0.962428), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Goal" type="Node3D"]
+
+[node name="SphereMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_vx86s")
+surface_material_override/0 = ExtResource("1_pu6c8")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+amount = 64
+randomness = 1.0
+lifetime_randomness = 0.3
+mesh = SubResource("SphereMesh_5g4ig")
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = -1.0
+linear_accel_max = 1.0
+angle_min = -114.4
+angle_max = 228.9
+scale_amount_curve = SubResource("Curve_yobio")
