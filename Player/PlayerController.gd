@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name PlayerController
 
 @export var gravity : bool = true
+@export var flipped : bool = false
 var landed : bool = true
 
 @onready var player_animation : AnimationTree = $AnimationTree
@@ -17,10 +18,14 @@ const PUSH_FORCE = Vector3(1.5,0, 1.5)
 
 var facing : bool = true
 var facing_scale : float = 0.0
+var flip_progress : float = 1.0
 
 func apply_gravity(delta : float):
 	if gravity:
-		velocity.y -= GRAVITY * delta
+			if flipped:
+				velocity.y += GRAVITY * delta
+			else:
+				velocity.y -= GRAVITY * delta
 	else:
 		if velocity.y > 0:
 			velocity.y = clamp(velocity.y - GRAVITY * delta,0,1000)
@@ -43,12 +48,39 @@ func get_move_direction() -> Vector3:
 
 func _ready() -> void:
 	facing_scale = player_mesh.scale.y
+	if flipped:
+		flip_progress = 0.0
+	else:
+		flip_progress = 1.0
+	determine_flip()
+
+func determine_flip():
+	if flipped:
+		up_direction = Vector3.DOWN
+	else:
+		up_direction = Vector3.UP
+
+func flip():
+	flipped = not flipped
+	determine_flip()
 
 func _physics_process(delta: float) -> void:
 	if facing:
 		player_mesh.scale.y = lerp(player_mesh.scale.y, facing_scale, 5*delta)
 	else:
 		player_mesh.scale.y = lerp(player_mesh.scale.y, -facing_scale, 5*delta)
+	
+	if flipped:
+		#scale.y = -1
+		if flip_progress > 0:
+			flip_progress -= 5*delta
+		else:
+			flip_progress = 0
+	elif flip_progress < 1:
+		#scale.y = 1
+		flip_progress += 5*delta
+	
+	scale.y = lerp(-1,1, flip_progress)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):

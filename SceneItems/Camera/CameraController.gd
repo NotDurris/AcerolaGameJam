@@ -5,8 +5,6 @@ extends Camera3D
 @export var move_speed : float
 @export_flags_3d_physics var wall_collision_layers : int
 
-@onready var ray_cast = $RayCast3D
-
 var previous_mat
 
 func _ready() -> void:

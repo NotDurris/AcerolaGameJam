@@ -1,4 +1,5 @@
 extends Node
+class_name DeathManager
 
 @onready var fading_manager : fade_manager = $FadeManager
 

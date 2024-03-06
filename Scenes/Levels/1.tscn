@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://boqbewyiyramc"]
+[gd_scene load_steps=9 format=3 uid="uid://boqbewyiyramc"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/Level.gd" id="1_i60ck"]
 [ext_resource type="PackedScene" uid="uid://hlqab4swufb4" path="res://SceneItems/EnvironmentGeometry/Geometry.tscn" id="2_4rnyl"]
-[ext_resource type="Script" path="res://SceneItems/Camera/CameraController.gd" id="2_6aovx"]
 [ext_resource type="PackedScene" uid="uid://cnhc0rg5ihi4j" path="res://Player/player.tscn" id="2_xdxes"]
 [ext_resource type="Material" uid="uid://c8pa3hmo1y5sc" path="res://Shaders/ScreenShader/screen_shader.tres" id="5_8x6oi"]
 [ext_resource type="FontFile" uid="uid://d3wg8t37qwin7" path="res://Assets/MinimalUI/OpenSans-Regular.ttf" id="9_yustc"]
@@ -20,18 +19,6 @@ script = ExtResource("1_i60ck")
 
 [node name="Player" parent="." instance=ExtResource("2_xdxes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.82268, 0)
-
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("look_target", "position_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0221071, 2.9975, 2.49094)
-size = 10.0
-script = ExtResource("2_6aovx")
-look_target = NodePath("../Player")
-position_target = NodePath("../Player/CameraPositionTarget")
-move_speed = 10.0
-wall_collision_layers = 512
-
-[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0221071, -2.9975, -2.49094)
 
 [node name="Environment" type="Node" parent="."]
 

@@ -15,8 +15,13 @@ func physics_update(delta : float) -> void:
 	player.player_animation.set("parameters/Movement/blend_position", blendAmount)
 	
 	# Check if player is falling
-	if not player.is_on_floor():
-		if player.velocity.y < 0:
+	if not player.is_on_floor() and player.gravity:
+		var falling = false
+		if player.flipped:
+			falling = 0 < player.velocity.y 
+		else:
+			falling = player.velocity.y < 0
+		if falling:
 			player.coyotee_time.start()
 			state_machine.transition_to("Fall")
 	

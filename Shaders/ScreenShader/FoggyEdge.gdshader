@@ -6,6 +6,7 @@ uniform sampler2D DEPTH_TEXTURE: hint_depth_texture, filter_linear_mipmap;
 uniform sampler2D NORMAL_TEXTURE : hint_normal_roughness_texture, filter_linear_mipmap;
 
 uniform float edge_threshold = 0.1;
+uniform float thickness = 0.1;
 uniform float fog_depth_threshold = 20.0;
 uniform float fog_falloff = 0.5;
 uniform vec3 line_colour: source_color = vec3(1.0);
@@ -46,7 +47,7 @@ void fragment() {
 
 	float depth = linearize_depth(uv, INV_PROJECTION_MATRIX);
 
-	vec2 offset = 0.5 / VIEWPORT_SIZE;
+	vec2 offset = (0.5 / VIEWPORT_SIZE) * thickness;
 
 	float n = linearize_depth(uv + vec2(0.0, -offset.y), INV_PROJECTION_MATRIX);
 	float s = linearize_depth(uv + vec2(0.0, offset.y), INV_PROJECTION_MATRIX);
@@ -56,6 +57,8 @@ void fragment() {
 	float ne = linearize_depth(uv + vec2(offset.x, -offset.y), INV_PROJECTION_MATRIX);
 	float sw = linearize_depth(uv + vec2(-offset.x, offset.y), INV_PROJECTION_MATRIX);
 	float se = linearize_depth(uv + vec2(offset.x, offset.y), INV_PROJECTION_MATRIX);
+	
+	offset = (0.5 / VIEWPORT_SIZE);
 	
 	vec3 n_1 = texture(NORMAL_TEXTURE, uv + vec2(0.0, -offset.y)).rgb;
 	vec3 s_1 = texture(NORMAL_TEXTURE, uv + vec2(0.0, offset.y)).rgb;
@@ -76,10 +79,17 @@ void fragment() {
 	float edge_x = dot(sobel_x[0], surrounding_pixels[0]) + dot(sobel_x[1], surrounding_pixels[1]) + dot(sobel_x[2], surrounding_pixels[2]);
 	float edge_y = dot(sobel_y[0], surrounding_pixels[0]) + dot(sobel_y[1], surrounding_pixels[1]) + dot(sobel_y[2], surrounding_pixels[2]);
 	
-	float edge = 0.0;
-	if (n_1 != s_1){
-		edge = sqrt(pow(edge_x, 2.0)+pow(edge_y, 2.0));
+	//float edge = 0.0;
+	//if (n_1 != s_1){
+	//	edge = sqrt(pow(edge_x, 2.0)+pow(edge_y, 2.0));
+	//}
+	float edge = sqrt(pow(edge_x, 2.0)+pow(edge_y, 2.0));
+	float view_angle = dot(VIEW, normal);
+	if(view_angle < 0.0 && view_angle > -0.0){
+		edge = 0.0;
 	}
+	
+
 	
 	// Normal based edge detection
 	surrounding_pixels = mat3(
@@ -103,7 +113,7 @@ void fragment() {
 			ALBEDO = mix(screen_colour.xyz, background_colour, depth_multiplier);
 		}
 	}else {
-		if (edge > edge_threshold || edge_1 > edge_threshold) {
+		if (edge > edge_threshold - 0.05 || edge_1 > edge_threshold) {
 			ALBEDO = line_colour;
 		}else{
 			ALBEDO = screen_colour.xyz;

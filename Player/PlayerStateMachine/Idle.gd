@@ -19,7 +19,12 @@ func physics_update(delta : float) -> void:
 	
 	# Check if player is falling
 	if not player.is_on_floor() and player.gravity:
-		if player.velocity.y < 0:
+		var falling = false
+		if player.flipped:
+			falling = 0 < player.velocity.y 
+		else:
+			falling = player.velocity.y < 0
+		if falling:
 			player.coyotee_time.start()
 			state_machine.transition_to("Fall")
 	

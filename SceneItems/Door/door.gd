@@ -21,6 +21,9 @@ var sources : int:
 func _ready():
 	move_to_start_pos()
 	Signals.connect("reset", move_to_start_pos)
+	setup_buttons()
+
+func setup_buttons():
 	for button in buttons:
 		button.connect("pressed", add_state)
 		button.connect("released", remove_state)

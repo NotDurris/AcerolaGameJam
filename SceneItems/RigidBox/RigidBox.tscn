@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc3uy0uivraxn"]
+[gd_scene load_steps=8 format=3 uid="uid://cc3uy0uivraxn"]
 
 [ext_resource type="Script" path="res://SceneItems/RigidBox/RigidBox.gd" id="1_088vc"]
 [ext_resource type="Material" uid="uid://c158qywkkv1j7" path="res://Shaders/ObjectShader/Material/Mid.tres" id="2_h56hb"]
 [ext_resource type="Script" path="res://Components/reset_position.gd" id="3_i768x"]
 [ext_resource type="Script" path="res://Components/reset_velocity.gd" id="4_1t3ta"]
+[ext_resource type="Script" path="res://Components/reset_flip.gd" id="5_fs05g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o45h2"]
 
@@ -31,3 +32,6 @@ script = ExtResource("3_i768x")
 
 [node name="ResetVelocity" type="Node" parent="."]
 script = ExtResource("4_1t3ta")
+
+[node name="ResetFlip" type="Node" parent="."]
+script = ExtResource("5_fs05g")

@@ -6,7 +6,7 @@ extends Node
 @onready var jaggy_mat : ShaderMaterial = preload("res://Shaders/ObjectShader/Material/Jaggy.tres")
 @onready var screen_mat : ShaderMaterial = preload("res://Shaders/ScreenShader/screen_shader.tres")
 
-var line_colour = Color.CORNSILK
+var line_colour = Color.WEB_GRAY
 
 @export var colour : Color :
 	set(value):

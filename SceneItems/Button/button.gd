@@ -9,7 +9,9 @@ var progress : float = 1.0
 
 @onready var btn_mesh = $ButtonMesh
 
-var sources : int
+var sources : int :
+	set(value):
+		sources = clamp(value, 0, 1000)
 var active : bool:
 	set(value):
 		active = value
@@ -19,14 +21,16 @@ var active : bool:
 			emit_signal("released")
 
 func _ready() -> void:
-	Signals.connect("reset", reset)
+	if brittle:
+		Signals.connect("reset", reset)
 
 func reset():
-	sources = 0
-	if active:
-		active = false
-	progress = 1
-	show()
+	if brittle:
+		sources = 0
+		if active:
+			active = false
+		progress = 1
+		show()
 
 func _physics_process(delta: float) -> void:
 	if active and progress > 0:

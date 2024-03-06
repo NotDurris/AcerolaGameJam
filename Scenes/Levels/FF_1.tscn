@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgdv7mng3nvsx"]
+
+[ext_resource type="Script" path="res://Scenes/Scripts/Level.gd" id="1_x4mm0"]
+[ext_resource type="PackedScene" uid="uid://cnhc0rg5ihi4j" path="res://Player/player.tscn" id="2_w6x1j"]
+[ext_resource type="Material" uid="uid://c8pa3hmo1y5sc" path="res://Shaders/ScreenShader/screen_shader.tres" id="4_vayil"]
+[ext_resource type="PackedScene" uid="uid://hlqab4swufb4" path="res://SceneItems/EnvironmentGeometry/Geometry.tscn" id="5_f6n33"]
+[ext_resource type="PackedScene" uid="uid://t00ol4bs3rua" path="res://SceneItems/Goal/goal.tscn" id="6_tyhf3"]
+[ext_resource type="Script" path="res://SceneItems/DeathManager/DeathManager.gd" id="7_cpked"]
+[ext_resource type="PackedScene" uid="uid://cgcaslleaiim1" path="res://SceneItems/FadingEffect/fade_manager.tscn" id="8_6xn2m"]
+[ext_resource type="PackedScene" uid="uid://bjx5343iusrxh" path="res://SceneItems/Button/flip_button.tscn" id="8_pct2f"]
+[ext_resource type="PackedScene" uid="uid://cc3uy0uivraxn" path="res://SceneItems/RigidBox/RigidBox.tscn" id="9_j6oqp"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_0fwjn"]
+material = ExtResource("4_vayil")
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6gpbd"]
+size = Vector3(100, 1, 100)
+
+[node name="FF_1" type="Node3D"]
+process_mode = 1
+script = ExtResource("1_x4mm0")
+
+[node name="Player" parent="." instance=ExtResource("2_w6x1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.82268, 0)
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="ScreenShader" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.36822, 0)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_0fwjn")
+skeleton = NodePath("../..")
+
+[node name="SolidObjects" type="Node" parent="."]
+
+[node name="Geometry" parent="SolidObjects" instance=ExtResource("5_f6n33")]
+transform = Transform3D(13.9663, 0, 0, 0, 1.00363, 0, 0, 0, 7.14611, -9, 0, 0)
+
+[node name="Geometry3" parent="SolidObjects" instance=ExtResource("5_f6n33")]
+transform = Transform3D(13.9663, 0, 0, 0, 1.00363, 0, 0, 0, 7.14611, 15, 0, 0)
+
+[node name="Geometry4" parent="SolidObjects" instance=ExtResource("5_f6n33")]
+transform = Transform3D(5.22341, 0, 0, 0, 2.93662, 0, 0, 0, 7.14611, 19, 1, 0)
+
+[node name="Geometry2" parent="SolidObjects" instance=ExtResource("5_f6n33")]
+transform = Transform3D(17.8769, 0, 0, 0, 1.00363, 0, 0, 0, 7.14611, 4.1, 11, 0)
+
+[node name="FlipButton" parent="SolidObjects" instance=ExtResource("8_pct2f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7, 0.5, 0)
+
+[node name="FlipButton3" parent="SolidObjects" instance=ExtResource("8_pct2f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.1, 0.5, 0)
+
+[node name="FlipButton2" parent="SolidObjects" instance=ExtResource("8_pct2f")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 11.3, 10.5, 0)
+
+[node name="Goal" parent="." node_paths=PackedStringArray("level") instance=ExtResource("6_tyhf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 19, 4, 0)
+level = NodePath("..")
+target_level = "adhesive_avatar"
+
+[node name="DeathManager" type="Node" parent="."]
+script = ExtResource("7_cpked")
+
+[node name="FadeManager" parent="DeathManager" instance=ExtResource("8_6xn2m")]
+
+[node name="DeathBox" type="Area3D" parent="DeathManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathManager/DeathBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+shape = SubResource("BoxShape3D_6gpbd")
+
+[node name="DeathBox2" type="Area3D" parent="DeathManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathManager/DeathBox2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+shape = SubResource("BoxShape3D_6gpbd")
+
+[node name="RigidBox" parent="." instance=ExtResource("9_j6oqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 10, 0)
+flipped = true
+
+[connection signal="body_entered" from="DeathManager/DeathBox" to="DeathManager" method="_on_death_box_body_entered"]
+[connection signal="body_entered" from="DeathManager/DeathBox2" to="DeathManager" method="_on_death_box_body_entered"]

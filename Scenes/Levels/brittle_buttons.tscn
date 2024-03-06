@@ -66,7 +66,7 @@ _data = {
 "anim": SubResource("Animation_2l7pa")
 }
 
-[node name="SlippySlide" type="Control"]
+[node name="BrittleButtons" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -119,7 +119,7 @@ horizontal_alignment = 1
 [node name="Transition" type="Node" parent="." node_paths=PackedStringArray("level")]
 script = ExtResource("4_1ecg3")
 level = NodePath("..")
-target_level = "MainMenu"
+target_level = "BB_1"
 time = 10.0
 
 [node name="Timer" type="Timer" parent="Transition"]

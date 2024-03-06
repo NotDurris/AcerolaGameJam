@@ -76,7 +76,7 @@ theme_override_font_sizes/font_size = 24
 text = "start"
 script = ExtResource("3_r8w1v")
 level = NodePath("../../..")
-target_level = "BB_1"
+target_level = "AA_1"
 
 [node name="focus_grabber" type="Node" parent="MainMenu/HBoxContainer/Start"]
 script = ExtResource("5_2n8j4")

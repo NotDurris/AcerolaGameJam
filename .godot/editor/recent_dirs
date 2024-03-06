@@ -1,4 +1,6 @@
+res://SceneItems/Camera
 res://Components
+res://SceneItems/Timer
 res://Globals
 res://Scenes/Scripts
 res://Shaders/ScreenShader
@@ -18,8 +20,6 @@ res://Shaders/ObjectShader/Material
 res://SceneItems/Goal
 res://Shaders/ObjectShader
 res://Shaders
-res://Player/PlayerStateMachine
-res://Animations
 D:/SteamLibrary/steamapps/common/Aseprite
 D:/GodotProjects/WindowsBuild
 D:/GodotProjects/BuiltGame

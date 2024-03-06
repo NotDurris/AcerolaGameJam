@@ -10,9 +10,14 @@ func exit() -> void:
 func physics_update(delta : float) -> void:
 	# Check if player is falling
 	if not player.is_on_floor() and player.gravity:
-		if player.velocity.y > 0:
+		var falling = false
+		if player.flipped:
+			falling = 0 < player.velocity.y 
+		else:
+			falling = player.velocity.y < 0
+		if falling:
+			player.coyotee_time.start()
 			state_machine.transition_to("Fall")
-			return
 	
 	# Apply gravity
 	player.apply_gravity(delta)
@@ -29,7 +34,7 @@ func physics_update(delta : float) -> void:
 			
 			if collider is RigidBox:
 				pushed = true
-				collider.push_box(-collision.get_normal(0) * player.PUSH_FORCE)
+				collider.push_box(-collision.get_normal(0) * player.PUSH_FORCE, player)
 	
 	# Handle other transitions
 	if Input.is_action_just_pressed("primary_action") or not player.jump_buffer.is_stopped():
