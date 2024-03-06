@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx88onu2ajmvy"]
+
+[ext_resource type="Script" path="res://Colour/ColourRandomiser.gd" id="1_ax20y"]
+
+[node name="ColourRandomiser" type="Node"]
+script = ExtResource("1_ax20y")

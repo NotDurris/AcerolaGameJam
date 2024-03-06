@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cc3uy0uivraxn"]
+[gd_scene load_steps=7 format=3 uid="uid://cc3uy0uivraxn"]
 
 [ext_resource type="Script" path="res://SceneItems/RigidBox/RigidBox.gd" id="1_088vc"]
 [ext_resource type="Material" uid="uid://c158qywkkv1j7" path="res://Shaders/ObjectShader/Material/Mid.tres" id="2_h56hb"]
+[ext_resource type="Script" path="res://Components/reset_position.gd" id="3_i768x"]
+[ext_resource type="Script" path="res://Components/reset_velocity.gd" id="4_1t3ta"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o45h2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hgdi4"]
 material = ExtResource("2_h56hb")
 
-[node name="RigidBox" type="CharacterBody3D"]
+[node name="RigidBox" type="CharacterBody3D" groups=["box"]]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
@@ -23,3 +25,9 @@ shape = SubResource("BoxShape3D_o45h2")
 [node name="BoxSprite" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.00207, 0, 0, 0, 1.00207, 0, 0, 0, 1.00207, 0, 0, 0)
 mesh = SubResource("BoxMesh_hgdi4")
+
+[node name="ResetPosition" type="Node" parent="."]
+script = ExtResource("3_i768x")
+
+[node name="ResetVelocity" type="Node" parent="."]
+script = ExtResource("4_1t3ta")

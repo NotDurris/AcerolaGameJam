@@ -1,0 +1,135 @@
+[gd_scene load_steps=9 format=3 uid="uid://nl0h1i2m64n7"]
+
+[ext_resource type="Theme" uid="uid://bd0jvnx8l2a1q" path="res://Assets/MinimalUI/MinimalUI.tres" id="1_md0qc"]
+[ext_resource type="Script" path="res://Scenes/Scripts/Level.gd" id="2_boj8f"]
+[ext_resource type="PackedScene" uid="uid://dx88onu2ajmvy" path="res://Colour/colour_randomiser.tscn" id="3_gk25y"]
+[ext_resource type="Script" path="res://SceneItems/Transition/Transition.gd" id="4_1ecg3"]
+[ext_resource type="Script" path="res://Components/spiralling.gd" id="4_wm6e0"]
+[ext_resource type="Script" path="res://Scenes/Levels/PlayAnimation.gd" id="5_wkmxi"]
+
+[sub_resource type="Animation" id="Animation_2l7pa"]
+resource_name = "play_through"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Label:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6.7, 7.4, 8.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/Label2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 5.9, 6.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/Label3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8.2, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/Label2")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spiral"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8j1cg"]
+_data = {
+"anim": SubResource("Animation_2l7pa")
+}
+
+[node name="SlippySlide" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_md0qc")
+script = ExtResource("2_boj8f")
+
+[node name="ColourRandomiser" parent="." instance=ExtResource("3_gk25y")]
+
+[node name="VBoxContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -267.0
+offset_top = -44.0
+offset_right = 267.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "this is not fun, its stupid"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1146.94, 1.105)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+autowrap_mode = 1
+script = ExtResource("4_wm6e0")
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Brittle Buttons"
+horizontal_alignment = 1
+
+[node name="Transition" type="Node" parent="." node_paths=PackedStringArray("level")]
+script = ExtResource("4_1ecg3")
+level = NodePath("..")
+target_level = "MainMenu"
+time = 10.0
+
+[node name="Timer" type="Timer" parent="Transition"]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8j1cg")
+}
+script = ExtResource("5_wkmxi")
+anim = "anim"
+
+[connection signal="timeout" from="Transition/Timer" to="Transition" method="_on_timer_timeout"]

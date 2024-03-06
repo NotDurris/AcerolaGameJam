@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bq8mqwls7lde4"]
+
+[ext_resource type="Shader" path="res://Shaders/ScreenShader/circle_transition.gdshader" id="1_6ltuh"]
+
+[resource]
+shader = ExtResource("1_6ltuh")
+shader_parameter/colour = Color(0.196078, 0.196078, 0.196078, 1)
+shader_parameter/cutout_position = Vector2(0.5, 0.5)
+shader_parameter/cutout_size = 0.0
+shader_parameter/cutout_fall_off_size = 0.5

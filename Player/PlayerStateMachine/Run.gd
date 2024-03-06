@@ -38,9 +38,9 @@ func physics_update(delta : float) -> void:
 	
 	# Handle other transitions
 	player_vel = Vector2(player.velocity.x, player.velocity.z)
-	if Input.is_action_just_pressed("jump") or not player.jump_buffer.is_stopped():
+	if Input.is_action_just_pressed("primary_action") or not player.jump_buffer.is_stopped():
 		state_machine.transition_to("Jump")
 	if player_vel == Vector2.ZERO and player.get_move_direction() == Vector3.ZERO:
 		state_machine.transition_to("Idle")
-	if not Input.is_action_pressed("run"):
+	if not Input.is_action_pressed("secondary_action"):
 		state_machine.transition_to("Walk")

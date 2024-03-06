@@ -18,13 +18,13 @@ func physics_update(delta : float) -> void:
 		state_machine.transition_to("Idle")
 	
 	player.apply_gravity(delta)
-	if Input.is_action_pressed("run"):
+	if Input.is_action_pressed("secondary_action"):
 		player.set_move_direction(player.get_move_direction() * player.RUNSPEED)
 	else:
 		player.set_move_direction(player.get_move_direction() * player.SPEED)
 	player.move_and_slide()
 	
 	# Handle other transitions
-	if Input.is_action_just_pressed("jump") or not player.jump_buffer.is_stopped():
+	if Input.is_action_just_pressed("primary_action") or not player.jump_buffer.is_stopped():
 		state_machine.transition_to("Jump")
 

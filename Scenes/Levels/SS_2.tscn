@@ -1,0 +1,119 @@
+[gd_scene load_steps=12 format=3 uid="uid://blhqboik3310"]
+
+[ext_resource type="Script" path="res://Scenes/Scripts/Level.gd" id="1_cq0mo"]
+[ext_resource type="PackedScene" uid="uid://cnhc0rg5ihi4j" path="res://Player/player.tscn" id="2_qosgq"]
+[ext_resource type="Script" path="res://SceneItems/Camera/CameraController.gd" id="3_urw1y"]
+[ext_resource type="Material" uid="uid://c8pa3hmo1y5sc" path="res://Shaders/ScreenShader/screen_shader.tres" id="4_nrpbl"]
+[ext_resource type="PackedScene" uid="uid://hlqab4swufb4" path="res://SceneItems/EnvironmentGeometry/Geometry.tscn" id="7_emu4f"]
+[ext_resource type="PackedScene" uid="uid://t00ol4bs3rua" path="res://SceneItems/Goal/goal.tscn" id="8_weidq"]
+[ext_resource type="PackedScene" uid="uid://dwflg18dm1s26" path="res://SceneItems/DeathManager/death_manager.tscn" id="9_pgtpl"]
+[ext_resource type="PackedScene" uid="uid://cc3uy0uivraxn" path="res://SceneItems/RigidBox/RigidBox.tscn" id="10_8kc0d"]
+[ext_resource type="PackedScene" uid="uid://ck6l6tsbelkxm" path="res://SceneItems/Door/door.tscn" id="11_fyejd"]
+[ext_resource type="PackedScene" uid="uid://xkkaumhrsqe0" path="res://SceneItems/Button/button.tscn" id="12_fut1a"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_0fwjn"]
+material = ExtResource("4_nrpbl")
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="SS_2" type="Node3D"]
+process_mode = 1
+script = ExtResource("1_cq0mo")
+
+[node name="Player" parent="." instance=ExtResource("2_qosgq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.624, -0.192945)
+
+[node name="Skeleton3D" parent="Player/Armature" index="0"]
+bones/0/position = Vector3(0.0433019, 0.0772665, -93.0741)
+bones/0/rotation = Quaternion(-0.685927, -0.268273, 0.248882, 0.628961)
+bones/1/rotation = Quaternion(-0.00785243, 0.0402863, -0.0067783, 0.999134)
+bones/2/rotation = Quaternion(0.092943, 0.0818153, -0.00776773, 0.992274)
+bones/3/rotation = Quaternion(0.0932513, 0.0817677, -0.00779377, 0.992249)
+bones/4/rotation = Quaternion(0.0487532, -0.00358017, 0.00032531, 0.998804)
+bones/5/rotation = Quaternion(-0.00560475, -0.00353164, 0.000608576, 0.999978)
+bones/7/rotation = Quaternion(-0.56903, -0.422352, 0.59742, -0.375384)
+bones/8/rotation = Quaternion(0.413777, -0.0913726, 0.0192533, 0.905577)
+bones/9/rotation = Quaternion(0.0391647, 0.06327, 0.418075, 0.90536)
+bones/10/rotation = Quaternion(-0.091984, 0.174158, -0.0351934, 0.97978)
+bones/11/rotation = Quaternion(0.2551, 0.142705, 0.130608, 0.947365)
+bones/12/rotation = Quaternion(-0.00725916, -0.00290842, 0.108798, 0.994033)
+bones/15/rotation = Quaternion(0.0551187, -0.000971708, 0.11653, 0.991656)
+bones/16/rotation = Quaternion(0.19343, -0.00200099, -0.00985701, 0.981063)
+bones/19/rotation = Quaternion(0.119243, 0.00684419, -0.0207451, 0.992625)
+bones/20/rotation = Quaternion(0.205303, -0.00134036, 0.00834727, 0.978662)
+bones/23/rotation = Quaternion(0.258642, -0.0131795, -0.0732665, 0.9631)
+bones/24/rotation = Quaternion(0.289691, 0.00206888, 0.0148405, 0.957003)
+bones/27/rotation = Quaternion(0.284932, -0.0121159, -0.106543, 0.952531)
+bones/28/rotation = Quaternion(0.350555, 0.0120806, 0.0373539, 0.935719)
+bones/31/rotation = Quaternion(0.623248, -0.379623, 0.561437, 0.390176)
+bones/32/rotation = Quaternion(0.369592, 0.0943603, 0.212597, 0.899611)
+bones/33/rotation = Quaternion(0.101501, 2.22419e-05, -0.356448, 0.928786)
+bones/34/rotation = Quaternion(0.128858, -0.097599, -0.0331693, 0.986291)
+bones/35/rotation = Quaternion(0.201926, -0.000433042, -0.192928, 0.960211)
+bones/36/rotation = Quaternion(-0.00425517, 0.00602348, 0.086768, 0.996201)
+bones/39/rotation = Quaternion(0.0296774, 0.00895738, -0.0479722, 0.998368)
+bones/40/rotation = Quaternion(0.146047, 0.000299004, 0.0182591, 0.989109)
+bones/43/rotation = Quaternion(0.0981787, 0.00358588, -0.0258227, 0.994827)
+bones/44/rotation = Quaternion(0.312684, 0.00146727, -0.0108135, 0.949795)
+bones/47/rotation = Quaternion(0.197287, -0.0127393, 0.0191696, 0.980076)
+bones/48/rotation = Quaternion(0.34435, -0.00316952, -0.0243077, 0.938521)
+bones/52/rotation = Quaternion(0.373863, -0.0134247, -0.0566597, 0.925655)
+bones/55/rotation = Quaternion(0.0782195, 0.197704, 0.972178, -0.0983091)
+bones/56/rotation = Quaternion(-0.304804, 0.120378, -0.0312507, 0.94426)
+bones/57/rotation = Quaternion(0.544782, -0.0657584, -0.00359346, 0.835988)
+bones/58/rotation = Quaternion(0.314413, -0.0682059, -0.00130746, 0.946832)
+bones/60/rotation = Quaternion(-0.123576, -0.00680318, 0.983594, 0.131243)
+bones/61/rotation = Quaternion(-0.28412, 0.0816791, -0.0173342, 0.955146)
+bones/62/rotation = Quaternion(0.65678, 0.108688, 0.0841644, 0.741447)
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("look_target", "position_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.06181, 2.9975, 2.49094)
+size = 10.0
+script = ExtResource("3_urw1y")
+look_target = NodePath("../Player")
+position_target = NodePath("../Player/CameraPositionTarget")
+move_speed = 10.0
+wall_collision_layers = 512
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0221071, -2.9975, -2.49094)
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="ScreenShader" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.36822, 0)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_0fwjn")
+skeleton = NodePath("../..")
+
+[node name="SolidObjects" type="Node" parent="."]
+
+[node name="Geometry" parent="SolidObjects" instance=ExtResource("7_emu4f")]
+transform = Transform3D(22.3437, 0, 0, 0, 1.00363, 0, 0, 0, 9.1917, 0, 0, 1.06932)
+
+[node name="Geometry12" parent="SolidObjects" instance=ExtResource("7_emu4f")]
+transform = Transform3D(7.58779, 0, 0, 0, 5.64262, 0, 0, 0, 3, 0, 2.22944, -5.02685)
+metadata/_edit_group_ = true
+
+[node name="Goal" parent="." node_paths=PackedStringArray("level") instance=ExtResource("8_weidq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 0.117708, 6.1446, -5.14522)
+level = NodePath("..")
+target_level = "SS_3"
+
+[node name="DeathManager" parent="." instance=ExtResource("9_pgtpl")]
+
+[node name="RigidBox" parent="." instance=ExtResource("10_8kc0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.04207, 1.029, 4.43954)
+conserve_velocity = true
+
+[node name="Door" parent="." node_paths=PackedStringArray("buttons") instance=ExtResource("11_fyejd")]
+transform = Transform3D(7, 0, 0, 0, 4.28324, 0, 0, 0, 3, 0, 2.16155, -2.798)
+buttons = [NodePath("../Button")]
+reverse = true
+preset = false
+speed = 3.5
+
+[node name="Button" parent="." instance=ExtResource("12_fut1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.489, 4.43954)
+
+[editable path="Player"]

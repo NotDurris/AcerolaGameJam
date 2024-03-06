@@ -10,7 +10,7 @@ func _ready() -> void:
 	connect("ScreenChange", change_screen)
 
 func change_screen(id : int):
-	process_mode = Node.PROCESS_MODE_ALWAYS
+	#process_mode = Node.PROCESS_MODE_ALWAYS
 	for screen in screens:
 		if screens.find(screen) != id:
 			screen.hide()

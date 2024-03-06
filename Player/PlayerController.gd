@@ -1,6 +1,9 @@
 extends CharacterBody3D
 class_name PlayerController
 
+@export var gravity : bool = true
+var landed : bool = true
+
 @onready var player_animation : AnimationTree = $AnimationTree
 @onready var player_mesh : Node3D = $Armature
 @onready var jump_buffer : Timer = $JumpBuffer
@@ -8,15 +11,21 @@ class_name PlayerController
 
 const SPEED = 2.5
 const RUNSPEED = 5
-const JUMP_FORCE = 18
-const GRAVITY = 80
+const JUMP_FORCE = 15
+const GRAVITY = 64
 const PUSH_FORCE = Vector3(1.5,0, 1.5)
 
 var facing : bool = true
 var facing_scale : float = 0.0
 
 func apply_gravity(delta : float):
-	velocity.y -= GRAVITY * delta
+	if gravity:
+		velocity.y -= GRAVITY * delta
+	else:
+		if velocity.y > 0:
+			velocity.y = clamp(velocity.y - GRAVITY * delta,0,1000)
+		else:
+			velocity.y = 0
 
 func set_move_direction(direction : Vector3):
 	if direction.x < 0:
@@ -40,3 +49,7 @@ func _physics_process(delta: float) -> void:
 		player_mesh.scale.y = lerp(player_mesh.scale.y, facing_scale, 5*delta)
 	else:
 		player_mesh.scale.y = lerp(player_mesh.scale.y, -facing_scale, 5*delta)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		$PauseMenu.pause()

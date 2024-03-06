@@ -1,5 +1,6 @@
 ShaderMaterial
-Shader
 Theme
+Shader
+VisualShader
 Upgrade_Base
 Resource

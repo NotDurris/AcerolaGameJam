@@ -5,6 +5,6 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_es5x7")
-shader_parameter/colour = Color(1, 1, 1, 1)
-shader_parameter/magnitude = 0.1
+shader_parameter/colour = Color(0.701961, 0.701961, 0.701961, 1)
+shader_parameter/magnitude = 0.2
 shader_parameter/time_step = 0.009

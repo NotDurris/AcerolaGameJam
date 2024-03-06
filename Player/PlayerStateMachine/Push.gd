@@ -9,7 +9,7 @@ func exit() -> void:
 
 func physics_update(delta : float) -> void:
 	# Check if player is falling
-	if not player.is_on_floor():
+	if not player.is_on_floor() and player.gravity:
 		if player.velocity.y > 0:
 			state_machine.transition_to("Fall")
 			return
@@ -32,10 +32,10 @@ func physics_update(delta : float) -> void:
 				collider.push_box(-collision.get_normal(0) * player.PUSH_FORCE)
 	
 	# Handle other transitions
-	if Input.is_action_just_pressed("jump") or not player.jump_buffer.is_stopped():
+	if Input.is_action_just_pressed("primary_action") or not player.jump_buffer.is_stopped():
 		state_machine.transition_to("Jump")
 	if player.get_move_direction() == Vector3.ZERO:
 		state_machine.transition_to("Idle")
-	if not pushed and Input.is_action_pressed("run"):
+	if not pushed and Input.is_action_pressed("secondary_action"):
 		state_machine.transition_to("Run")
 

@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgcaslleaiim1"]
+
+[ext_resource type="Material" uid="uid://bq8mqwls7lde4" path="res://Shaders/ScreenShader/scene_transition.tres" id="1_dymtv"]
+[ext_resource type="Script" path="res://SceneItems/FadingEffect/fade_manager.gd" id="1_yoor2"]
+
+[sub_resource type="Animation" id="Animation_7qx2w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeManager/FadeEffect/ColorRect:material:shader_parameter/cutout_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_c8v2v"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeManager/FadeEffect/ColorRect:material:shader_parameter/cutout_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ub617"]
+resource_name = "fade_out"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeManager/FadeEffect/ColorRect:material:shader_parameter/cutout_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4i75p"]
+_data = {
+"RESET": SubResource("Animation_7qx2w"),
+"fade_in": SubResource("Animation_c8v2v"),
+"fade_out": SubResource("Animation_ub617")
+}
+
+[node name="FadeManager" type="Node"]
+script = ExtResource("1_yoor2")
+
+[node name="FadeEffect" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="FadeEffect"]
+material = ExtResource("1_dymtv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_4i75p")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

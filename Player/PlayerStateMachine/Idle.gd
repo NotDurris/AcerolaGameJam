@@ -4,6 +4,7 @@ var blendAmount : float
 
 func enter() -> void:
 	player.velocity = Vector3.ZERO
+	player.landed = true
 	
 	player.player_animation.set("parameters/Blend/blend_amount", 0)
 	blendAmount = player.player_animation.get("parameters/Movement/blend_position")
@@ -17,7 +18,7 @@ func physics_update(delta : float) -> void:
 	player.player_animation.set("parameters/Movement/blend_position", blendAmount)
 	
 	# Check if player is falling
-	if not player.is_on_floor():
+	if not player.is_on_floor() and player.gravity:
 		if player.velocity.y < 0:
 			player.coyotee_time.start()
 			state_machine.transition_to("Fall")
@@ -31,7 +32,7 @@ func physics_update(delta : float) -> void:
 	# Handle Collisions
 	
 	# Handle other transitions
-	if Input.is_action_just_pressed("jump") or not player.jump_buffer.is_stopped():
+	if Input.is_action_just_pressed("primary_action") or not player.jump_buffer.is_stopped():
 		state_machine.transition_to("Jump")
 	if player.get_move_direction() != Vector3.ZERO:
 		state_machine.transition_to("Walk")

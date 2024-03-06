@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck6l6tsbelkxm"]
+
+[ext_resource type="Script" path="res://SceneItems/Door/door.gd" id="1_wnwgt"]
+[ext_resource type="Material" uid="uid://c158qywkkv1j7" path="res://Shaders/ObjectShader/Material/Mid.tres" id="2_ynpgl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uk5hp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dv0na"]
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_wnwgt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_uk5hp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_dv0na")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_ynpgl")

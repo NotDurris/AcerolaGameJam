@@ -5,4 +5,4 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_tkeuv")
-shader_parameter/colour = Color(0, 0.7, 0.311719, 1)
+shader_parameter/colour = Color(1, 1, 1, 1)

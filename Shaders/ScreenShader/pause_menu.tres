@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dk1qq81gww524"]
+
+[ext_resource type="Shader" path="res://Shaders/ScreenShader/pause_menu.gdshader" id="1_c2rc3"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_c2rc3")
+shader_parameter/pixel_factor = 0.2
+shader_parameter/noise_factor = 0.01

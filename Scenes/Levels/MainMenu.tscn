@@ -1,0 +1,211 @@
+[gd_scene load_steps=13 format=3 uid="uid://bl3va7wxk0qct"]
+
+[ext_resource type="Theme" uid="uid://bd0jvnx8l2a1q" path="res://Assets/MinimalUI/MinimalUI.tres" id="1_0jg7n"]
+[ext_resource type="Script" path="res://Scenes/Scripts/Level.gd" id="1_4te7s"]
+[ext_resource type="Script" path="res://Menu/MenuController.gd" id="2_p5ys4"]
+[ext_resource type="Script" path="res://Menu/menu_screen_change.gd" id="3_27bhy"]
+[ext_resource type="Script" path="res://Scenes/Scripts/ButtonChangeLevel.gd" id="3_r8w1v"]
+[ext_resource type="Script" path="res://Menu/VolumeSlider.gd" id="4_stwg3"]
+[ext_resource type="Script" path="res://Components/focus_grabber.gd" id="5_2n8j4"]
+[ext_resource type="Script" path="res://Components/quit.gd" id="7_cng2q"]
+[ext_resource type="Script" path="res://Components/fullscreen.gd" id="8_8t76q"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_a0wd1"]
+action = &"secondary_action"
+
+[sub_resource type="Shortcut" id="Shortcut_awd3p"]
+events = [SubResource("InputEventAction_a0wd1")]
+
+[sub_resource type="Shortcut" id="Shortcut_esp4x"]
+events = [SubResource("InputEventAction_a0wd1")]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_0jg7n")
+script = ExtResource("1_4te7s")
+
+[node name="MenuController" type="Control" parent="." node_paths=PackedStringArray("screens")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_p5ys4")
+screens = [NodePath("../MainMenu"), NodePath("../Options")]
+
+[node name="MainMenu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -70.0
+offset_right = 42.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Spacer" type="Control" parent="MainMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Title" type="Label" parent="MainMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "work in progress"
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="MainMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Start" type="Button" parent="MainMenu/HBoxContainer" node_paths=PackedStringArray("level")]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "start"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../..")
+target_level = "BB_1"
+
+[node name="focus_grabber" type="Node" parent="MainMenu/HBoxContainer/Start"]
+script = ExtResource("5_2n8j4")
+
+[node name="Options" type="Button" parent="MainMenu/HBoxContainer" node_paths=PackedStringArray("menu_controller")]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "options"
+script = ExtResource("3_27bhy")
+target_screenID = 1
+menu_controller = NodePath("../../../MenuController")
+
+[node name="Close" type="Button" parent="MainMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+shortcut = SubResource("Shortcut_awd3p")
+text = "close"
+script = ExtResource("7_cng2q")
+
+[node name="Spacer3" type="Control" parent="MainMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Options" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Spacer" type="Control" parent="Options"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Options"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "options"
+horizontal_alignment = 1
+
+[node name="Spacer5" type="Control" parent="Options"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="ToggleFullscreen" type="Button" parent="Options"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+text = "fullscreen"
+script = ExtResource("8_8t76q")
+
+[node name="Spacer2" type="Control" parent="Options"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Title2" type="Label" parent="Options"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "volume"
+horizontal_alignment = 1
+
+[node name="MasterVolume" type="Label" parent="Options"]
+layout_mode = 2
+text = "Master"
+horizontal_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="Options"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+script = ExtResource("4_stwg3")
+bus_name = "Master"
+
+[node name="MusicVolume" type="Label" parent="Options"]
+layout_mode = 2
+text = "Music"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="Options"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+script = ExtResource("4_stwg3")
+bus_name = "Music"
+
+[node name="SFXVolume" type="Label" parent="Options"]
+layout_mode = 2
+text = "Sound Effects"
+horizontal_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="Options"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+script = ExtResource("4_stwg3")
+bus_name = "SFX"
+
+[node name="Spacer3" type="Control" parent="Options"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Return" type="Button" parent="Options" node_paths=PackedStringArray("menu_controller")]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+shortcut = SubResource("Shortcut_esp4x")
+text = "Return"
+script = ExtResource("3_27bhy")
+menu_controller = NodePath("../../MenuController")
+
+[node name="focus_grabber" type="Node" parent="Options/Return"]
+script = ExtResource("5_2n8j4")
+
+[node name="Spacer4" type="Control" parent="Options"]
+layout_mode = 2
+size_flags_vertical = 3

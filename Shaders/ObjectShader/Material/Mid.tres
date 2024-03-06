@@ -5,4 +5,4 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_b8fn5")
-shader_parameter/colour = Color(0, 0.5, 0.222656, 1)
+shader_parameter/colour = Color(0.439216, 0.439216, 0.439216, 1)

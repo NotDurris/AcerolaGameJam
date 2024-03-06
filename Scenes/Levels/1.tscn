@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://boqbewyiyramc"]
+
+[ext_resource type="Script" path="res://Scenes/Scripts/Level.gd" id="1_i60ck"]
+[ext_resource type="PackedScene" uid="uid://hlqab4swufb4" path="res://SceneItems/EnvironmentGeometry/Geometry.tscn" id="2_4rnyl"]
+[ext_resource type="Script" path="res://SceneItems/Camera/CameraController.gd" id="2_6aovx"]
+[ext_resource type="PackedScene" uid="uid://cnhc0rg5ihi4j" path="res://Player/player.tscn" id="2_xdxes"]
+[ext_resource type="Material" uid="uid://c8pa3hmo1y5sc" path="res://Shaders/ScreenShader/screen_shader.tres" id="5_8x6oi"]
+[ext_resource type="FontFile" uid="uid://d3wg8t37qwin7" path="res://Assets/MinimalUI/OpenSans-Regular.ttf" id="9_yustc"]
+[ext_resource type="PackedScene" uid="uid://dwflg18dm1s26" path="res://SceneItems/DeathManager/death_manager.tscn" id="13_g1c6d"]
+[ext_resource type="PackedScene" uid="uid://t00ol4bs3rua" path="res://SceneItems/Goal/goal.tscn" id="14_motim"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_0fwjn"]
+material = ExtResource("5_8x6oi")
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="1" type="Node3D"]
+process_mode = 1
+script = ExtResource("1_i60ck")
+
+[node name="Player" parent="." instance=ExtResource("2_xdxes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.82268, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("look_target", "position_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0221071, 2.9975, 2.49094)
+size = 10.0
+script = ExtResource("2_6aovx")
+look_target = NodePath("../Player")
+position_target = NodePath("../Player/CameraPositionTarget")
+move_speed = 10.0
+wall_collision_layers = 512
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0221071, -2.9975, -2.49094)
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="ScreenShader" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.36822, 0)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_0fwjn")
+skeleton = NodePath("../..")
+
+[node name="SolidObjects" type="Node" parent="."]
+
+[node name="Geometry" parent="SolidObjects" instance=ExtResource("2_4rnyl")]
+transform = Transform3D(27.9327, 0, 0, 0, 1.00363, 0, 0, 0, 7.14611, 0, 0, 0)
+
+[node name="Goal" parent="." node_paths=PackedStringArray("level") instance=ExtResource("14_motim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 9, 2, 0)
+level = NodePath("..")
+target_level = "2"
+
+[node name="DeathManager" parent="." instance=ExtResource("13_g1c6d")]
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.1, 3.6)
+render_priority = 10
+text = "arrow keys"
+font = ExtResource("9_yustc")
+font_size = 167
