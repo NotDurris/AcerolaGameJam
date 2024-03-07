@@ -27,8 +27,15 @@ func apply_gravity(delta : float):
 			else:
 				velocity.y -= GRAVITY * delta
 	else:
-		if velocity.y > 0:
-			velocity.y = clamp(velocity.y - GRAVITY * delta,0,1000)
+		var multip : float = 1.0
+		var vel_value : bool = velocity.y > 0
+		var velocity_set : float = clamp(velocity.y - multip*GRAVITY * delta,0,1000)
+		if flipped:
+			multip = -1.0
+			vel_value = velocity.y < 0
+			velocity_set = clamp(velocity.y - multip*GRAVITY * delta,-1000,0)
+		if vel_value:
+			velocity.y = velocity_set
 		else:
 			velocity.y = 0
 
@@ -78,7 +85,10 @@ func _physics_process(delta: float) -> void:
 			flip_progress = 0
 	elif flip_progress < 1:
 		#scale.y = 1
-		flip_progress += 5*delta
+		if flip_progress < 1:
+			flip_progress += 5*delta
+		else:
+			flip_progress = 1
 	
 	scale.y = lerp(-1,1, flip_progress)
 

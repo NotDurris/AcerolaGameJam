@@ -87,7 +87,6 @@ text = "this is too finicky"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
-self_modulate = Color(1, 1, 1, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "this will never work"
@@ -105,6 +104,7 @@ script = ExtResource("4_7s852")
 level = NodePath("..")
 target_level = "SS_1"
 time = 5.0
+level_completed = 18
 
 [node name="Timer" type="Timer" parent="Transition"]
 one_shot = true

@@ -8,6 +8,7 @@ signal level_changed(scene_name)
 var parameters_loaded := false
 
 var level_parameters  := {
+	"LevelsCompleted" : 0
 }
 
 func load_level_parameters(new_level_parameters : Dictionary):

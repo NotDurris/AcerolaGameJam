@@ -3,6 +3,7 @@ extends PlayerState
 var blendAmount : float = -1.0
 
 func enter() -> void:
+	player.coyotee_time.stop()
 	var jump_forward_vel
 	if Input.is_action_pressed("secondary_action"):
 		jump_forward_vel = player.get_move_direction() * player.RUNSPEED * 2
@@ -33,9 +34,8 @@ func physics_update(delta : float) -> void:
 		else:
 			falling = player.velocity.y < 0
 		if falling:
-			player.coyotee_time.start()
 			state_machine.transition_to("Fall")
-	else:
+	elif player.is_on_floor() or not player.gravity:
 		if player.velocity.y == 0:
 			state_machine.transition_to("Land")
 	

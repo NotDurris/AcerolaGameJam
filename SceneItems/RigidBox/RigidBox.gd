@@ -30,8 +30,15 @@ func _physics_process(delta: float) -> void:
 		if dir > 1.2:
 			stuck_body = null
 		else:
-			velocity.x = stuck_body.velocity.x
-			velocity.z = stuck_body.velocity.z
+			if maxf(abs(stuck_body.get_move_direction().x), abs(stuck_body.velocity.x)) == abs(stuck_body.get_move_direction().x):
+				velocity.x = stuck_body.get_move_direction().x
+			else:
+				velocity.x = stuck_body.velocity.x
+			
+			if maxf(abs(stuck_body.get_move_direction().z), abs(stuck_body.velocity.z)) == abs(stuck_body.get_move_direction().z):
+				velocity.z = stuck_body.get_move_direction().z
+			else:
+				velocity.z = stuck_body.velocity.z
 	
 	if not is_on_floor() and gravity:
 		if flipped:

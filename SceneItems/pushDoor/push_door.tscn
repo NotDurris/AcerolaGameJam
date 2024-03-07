@@ -4,9 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cc3uy0uivraxn" path="res://SceneItems/RigidBox/RigidBox.tscn" id="2_u3juw"]
 
 [node name="PushDoor" type="Node3D" node_paths=PackedStringArray("buttons")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -8, 3, 0)
 script = ExtResource("1_qhfga")
-buttons = [NodePath("")]
+buttons = [null]
 pushable = true
 
 [node name="StaticBody3D" parent="." instance=ExtResource("2_u3juw")]

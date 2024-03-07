@@ -105,6 +105,7 @@ script = ExtResource("3_0vain")
 level = NodePath("..")
 target_level = "GG_1"
 time = 5.0
+level_completed = 6
 
 [node name="Timer" type="Timer" parent="Transition"]
 one_shot = true

@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://ss76syibsiri"]
+
+[ext_resource type="Script" path="res://Scenes/Scripts/Level.gd" id="1_jnw00"]
+[ext_resource type="PackedScene" uid="uid://cnhc0rg5ihi4j" path="res://Player/player.tscn" id="2_ewx4e"]
+[ext_resource type="Material" uid="uid://c8pa3hmo1y5sc" path="res://Shaders/ScreenShader/screen_shader.tres" id="3_apkue"]
+[ext_resource type="PackedScene" uid="uid://t00ol4bs3rua" path="res://SceneItems/Goal/goal.tscn" id="5_u0mwu"]
+[ext_resource type="PackedScene" uid="uid://dwflg18dm1s26" path="res://SceneItems/DeathManager/death_manager.tscn" id="6_t4upl"]
+[ext_resource type="PackedScene" uid="uid://cc67svnik24ux" path="res://SceneItems/pushDoor/push_door.tscn" id="7_162e8"]
+[ext_resource type="PackedScene" uid="uid://xkkaumhrsqe0" path="res://SceneItems/Button/button.tscn" id="8_50m8x"]
+[ext_resource type="PackedScene" uid="uid://cc3uy0uivraxn" path="res://SceneItems/RigidBox/RigidBox.tscn" id="9_ext5a"]
+[ext_resource type="PackedScene" uid="uid://nuolr514vwks" path="res://SceneItems/Timer/timer.tscn" id="10_64l5s"]
+[ext_resource type="PackedScene" uid="uid://cac0akekk45pp" path="res://SceneItems/RemoteMovement/remote_movement.tscn" id="11_b7igo"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_0fwjn"]
+material = ExtResource("3_apkue")
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="CC_1" type="Node3D"]
+process_mode = 1
+script = ExtResource("1_jnw00")
+
+[node name="Player" parent="." instance=ExtResource("2_ewx4e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.52268, 0)
+gravity = false
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="ScreenShader" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.36822, 0)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_0fwjn")
+skeleton = NodePath("../..")
+
+[node name="SolidObjects" type="Node" parent="."]
+
+[node name="Goal" parent="." node_paths=PackedStringArray("level") instance=ExtResource("5_u0mwu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, -0.7, 0)
+level = NodePath("..")
+target_level = "end"
+
+[node name="DeathManager" parent="." instance=ExtResource("6_t4upl")]
+
+[node name="PushDoor" parent="." node_paths=PackedStringArray("buttons") instance=ExtResource("7_162e8")]
+transform = Transform3D(2, 0, 0, 0, -3.2, 1.74846e-07, 0, -2.79753e-07, -2, 0, 0, 0)
+buttons = [NodePath("../Button")]
+preset = false
+
+[node name="StaticBody3D" parent="PushDoor" index="0"]
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="Button" parent="." instance=ExtResource("8_50m8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.5, 0)
+brittle = true
+flipper = true
+
+[node name="RigidBox" parent="." instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.2, 0)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="Timer" parent="." node_paths=PackedStringArray("death_manager") instance=ExtResource("10_64l5s")]
+start_time = 30.0
+death_manager = NodePath("../DeathManager")
+
+[node name="RemoteMovement" parent="." node_paths=PackedStringArray("controller_body", "remoted_bodies") instance=ExtResource("11_b7igo")]
+controller_body = NodePath("../Player")
+remoted_bodies = [NodePath("../RigidBox")]
+
+[editable path="PushDoor"]

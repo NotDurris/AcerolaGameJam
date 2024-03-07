@@ -1,14 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://bl3va7wxk0qct"]
+[gd_scene load_steps=17 format=3 uid="uid://bl3va7wxk0qct"]
 
 [ext_resource type="Theme" uid="uid://bd0jvnx8l2a1q" path="res://Assets/MinimalUI/MinimalUI.tres" id="1_0jg7n"]
 [ext_resource type="Script" path="res://Scenes/Scripts/Level.gd" id="1_4te7s"]
 [ext_resource type="Script" path="res://Menu/MenuController.gd" id="2_p5ys4"]
 [ext_resource type="Script" path="res://Menu/menu_screen_change.gd" id="3_27bhy"]
 [ext_resource type="Script" path="res://Scenes/Scripts/ButtonChangeLevel.gd" id="3_r8w1v"]
+[ext_resource type="Script" path="res://Components/jiggly.gd" id="4_g6jag"]
 [ext_resource type="Script" path="res://Menu/VolumeSlider.gd" id="4_stwg3"]
 [ext_resource type="Script" path="res://Components/focus_grabber.gd" id="5_2n8j4"]
 [ext_resource type="Script" path="res://Components/quit.gd" id="7_cng2q"]
 [ext_resource type="Script" path="res://Components/fullscreen.gd" id="8_8t76q"]
+[ext_resource type="Script" path="res://Components/level_restriction.gd" id="8_fq4ej"]
+[ext_resource type="Script" path="res://Components/levels_manager.gd" id="9_heye2"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3tyie"]
+blend_mode = 1
 
 [sub_resource type="InputEventAction" id="InputEventAction_a0wd1"]
 action = &"secondary_action"
@@ -35,17 +41,14 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_p5ys4")
-screens = [NodePath("../MainMenu"), NodePath("../Options")]
+screens = [NodePath("../MainMenu"), NodePath("../Options"), NodePath("../Level Select")]
 
 [node name="MainMenu" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -42.0
-offset_top = -70.0
-offset_right = 42.0
-offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -55,11 +58,47 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="Title" type="Label" parent="MainMenu"]
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 23
-text = "work in progress"
-horizontal_alignment = 1
+
+[node name="red" type="RichTextLabel" parent="MainMenu/CenterContainer" node_paths=PackedStringArray("level")]
+self_modulate = Color(1, 0, 0, 1)
+material = SubResource("CanvasItemMaterial_3tyie")
+clip_contents = false
+custom_minimum_size = Vector2(1100, 200)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "[center][shake rate=10 level=10]work in progress"
+script = ExtResource("4_g6jag")
+level = NodePath("../../..")
+actual_text = "work in progress"
+
+[node name="green" type="RichTextLabel" parent="MainMenu/CenterContainer" node_paths=PackedStringArray("level")]
+self_modulate = Color(0, 1, 0, 1)
+material = SubResource("CanvasItemMaterial_3tyie")
+clip_contents = false
+custom_minimum_size = Vector2(1100, 200)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "[center][shake rate=10 level=10]work in progress"
+script = ExtResource("4_g6jag")
+level = NodePath("../../..")
+actual_text = "work in progress"
+
+[node name="blue" type="RichTextLabel" parent="MainMenu/CenterContainer" node_paths=PackedStringArray("level")]
+self_modulate = Color(0, 0, 1, 1)
+material = SubResource("CanvasItemMaterial_3tyie")
+clip_contents = false
+custom_minimum_size = Vector2(1100, 200)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "[center][shake rate=10 level=10]work in progress"
+script = ExtResource("4_g6jag")
+level = NodePath("../../..")
+actual_text = "work in progress"
 
 [node name="Spacer2" type="Control" parent="MainMenu"]
 layout_mode = 2
@@ -76,10 +115,24 @@ theme_override_font_sizes/font_size = 24
 text = "start"
 script = ExtResource("3_r8w1v")
 level = NodePath("../../..")
-target_level = "PP_1"
+target_level = "MM_3"
 
 [node name="focus_grabber" type="Node" parent="MainMenu/HBoxContainer/Start"]
 script = ExtResource("5_2n8j4")
+
+[node name="Level_Select" type="Button" parent="MainMenu/HBoxContainer" node_paths=PackedStringArray("menu_controller")]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "select"
+script = ExtResource("3_27bhy")
+target_screenID = 2
+menu_controller = NodePath("../../../MenuController")
+
+[node name="LevelRestriction" type="Node" parent="MainMenu/HBoxContainer/Level_Select" node_paths=PackedStringArray("level")]
+script = ExtResource("8_fq4ej")
+level = NodePath("../../../..")
 
 [node name="Options" type="Button" parent="MainMenu/HBoxContainer" node_paths=PackedStringArray("menu_controller")]
 layout_mode = 2
@@ -115,21 +168,58 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Spacer" type="Control" parent="Options"]
+[node name="Spacer5" type="Control" parent="Options"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 mouse_filter = 2
 
-[node name="Title" type="Label" parent="Options"]
+[node name="Cool Text" type="CenterContainer" parent="Options"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "options"
-horizontal_alignment = 1
 
-[node name="Spacer5" type="Control" parent="Options"]
+[node name="red" type="RichTextLabel" parent="Options/Cool Text" node_paths=PackedStringArray("level")]
+self_modulate = Color(1, 0, 0, 1)
+material = SubResource("CanvasItemMaterial_3tyie")
+clip_contents = false
+custom_minimum_size = Vector2(1100, 100)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center][shake rate=10 level=10]options"
+script = ExtResource("4_g6jag")
+level = NodePath("../../..")
+actual_text = "options"
+
+[node name="blue" type="RichTextLabel" parent="Options/Cool Text" node_paths=PackedStringArray("level")]
+self_modulate = Color(0, 0, 1, 1)
+material = SubResource("CanvasItemMaterial_3tyie")
+clip_contents = false
+custom_minimum_size = Vector2(1100, 100)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center][shake rate=10 level=10]options"
+script = ExtResource("4_g6jag")
+level = NodePath("../../..")
+actual_text = "options"
+
+[node name="green" type="RichTextLabel" parent="Options/Cool Text" node_paths=PackedStringArray("level")]
+self_modulate = Color(0, 1, 0, 1)
+material = SubResource("CanvasItemMaterial_3tyie")
+clip_contents = false
+custom_minimum_size = Vector2(1100, 100)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center][shake rate=10 level=10]options"
+script = ExtResource("4_g6jag")
+level = NodePath("../../..")
+actual_text = "options"
+
+[node name="Spacer" type="Control" parent="Options"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
 mouse_filter = 2
 
 [node name="ToggleFullscreen" type="Button" parent="Options"]
@@ -139,6 +229,9 @@ mouse_filter = 2
 text = "fullscreen"
 script = ExtResource("8_8t76q")
 
+[node name="focus_grabber" type="Node" parent="Options/ToggleFullscreen"]
+script = ExtResource("5_2n8j4")
+
 [node name="Spacer2" type="Control" parent="Options"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -146,9 +239,14 @@ mouse_filter = 2
 
 [node name="Title2" type="Label" parent="Options"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 28
 text = "volume"
 horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Options"]
+custom_minimum_size = Vector2(450, 2)
+layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="MasterVolume" type="Label" parent="Options"]
 layout_mode = 2
@@ -203,9 +301,497 @@ text = "Return"
 script = ExtResource("3_27bhy")
 menu_controller = NodePath("../../MenuController")
 
-[node name="focus_grabber" type="Node" parent="Options/Return"]
+[node name="Spacer4" type="Control" parent="Options"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Level Select" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Spacer" type="Control" parent="Level Select"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Cool Text" type="CenterContainer" parent="Level Select"]
+layout_mode = 2
+
+[node name="red" type="RichTextLabel" parent="Level Select/Cool Text" node_paths=PackedStringArray("level")]
+self_modulate = Color(1, 0, 0, 1)
+material = SubResource("CanvasItemMaterial_3tyie")
+clip_contents = false
+custom_minimum_size = Vector2(1100, 100)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center][shake rate=10 level=10]options"
+script = ExtResource("4_g6jag")
+level = NodePath("../../..")
+actual_text = "level select"
+
+[node name="blue" type="RichTextLabel" parent="Level Select/Cool Text" node_paths=PackedStringArray("level")]
+self_modulate = Color(0, 0, 1, 1)
+material = SubResource("CanvasItemMaterial_3tyie")
+clip_contents = false
+custom_minimum_size = Vector2(1100, 100)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center][shake rate=10 level=10]options"
+script = ExtResource("4_g6jag")
+level = NodePath("../../..")
+actual_text = "level select"
+
+[node name="green" type="RichTextLabel" parent="Level Select/Cool Text" node_paths=PackedStringArray("level")]
+self_modulate = Color(0, 1, 0, 1)
+material = SubResource("CanvasItemMaterial_3tyie")
+clip_contents = false
+custom_minimum_size = Vector2(1100, 100)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center][shake rate=10 level=10]options"
+script = ExtResource("4_g6jag")
+level = NodePath("../../..")
+actual_text = "level select"
+
+[node name="Spacer2" type="Control" parent="Level Select"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Level Select"]
+custom_minimum_size = Vector2(234.595, 61.625)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.69
+mouse_filter = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="LevelsContainer" type="VBoxContainer" parent="Level Select/ScrollContainer" node_paths=PackedStringArray("level", "level_buttons")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+script = ExtResource("9_heye2")
+level = NodePath("../../..")
+level_buttons = [NodePath("Core Concepts/core_concepts"), NodePath("Core Concepts/HBoxContainer/1"), NodePath("Core Concepts/HBoxContainer/2"), NodePath("Core Concepts/HBoxContainer/3"), NodePath("Core Concepts/HBoxContainer/4"), NodePath("Core Concepts/HBoxContainer/5"), NodePath("Gravity Gone/gravity_gone"), NodePath("Gravity Gone/HBoxContainer/1"), NodePath("Gravity Gone/HBoxContainer/2"), NodePath("Gravity Gone/HBoxContainer/3"), NodePath("Gravity Gone/HBoxContainer/4"), NodePath("Gravity Gone/HBoxContainer/5"), NodePath("Mecha Movement/mecha_movement"), NodePath("Mecha Movement/HBoxContainer/1"), NodePath("Mecha Movement/HBoxContainer/2"), NodePath("Mecha Movement/HBoxContainer/3"), NodePath("Mecha Movement/HBoxContainer/4"), NodePath("Mecha Movement/HBoxContainer/5"), NodePath("Slippy Slide/slippy_slide"), NodePath("Slippy Slide/HBoxContainer/1"), NodePath("Slippy Slide/HBoxContainer/2"), NodePath("Slippy Slide/HBoxContainer/3"), NodePath("Slippy Slide/HBoxContainer/4"), NodePath("Slippy Slide/HBoxContainer/5"), NodePath("Brittle Buttons/brittle_buttons"), NodePath("Brittle Buttons/HBoxContainer/1"), NodePath("Brittle Buttons/HBoxContainer/2"), NodePath("Brittle Buttons/HBoxContainer/3"), NodePath("Brittle Buttons/HBoxContainer/4"), NodePath("Brittle Buttons/HBoxContainer/5")]
+
+[node name="Core Concepts" type="VBoxContainer" parent="Level Select/ScrollContainer/LevelsContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="core_concepts" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Core Concepts" node_paths=PackedStringArray("level")]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "Core Concepts"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../..")
+target_level = "core_concepts"
+
+[node name="focus_grabber" type="Node" parent="Level Select/ScrollContainer/LevelsContainer/Core Concepts/core_concepts"]
 script = ExtResource("5_2n8j4")
 
-[node name="Spacer4" type="Control" parent="Options"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Level Select/ScrollContainer/LevelsContainer/Core Concepts"]
+layout_mode = 2
+
+[node name="1" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Core Concepts/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "1
+"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "1"
+
+[node name="2" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Core Concepts/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "2
+"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "2"
+
+[node name="3" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Core Concepts/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "3"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "3"
+
+[node name="4" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Core Concepts/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "4"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "4"
+
+[node name="5" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Core Concepts/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "5
+"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "5"
+
+[node name="Spacer2" type="Control" parent="Level Select/ScrollContainer/LevelsContainer/Core Concepts"]
+custom_minimum_size = Vector2(0.005, 20)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Gravity Gone" type="VBoxContainer" parent="Level Select/ScrollContainer/LevelsContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="gravity_gone" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Gravity Gone" node_paths=PackedStringArray("level")]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "Gravity Gone"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../..")
+target_level = "gravity_gone"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Level Select/ScrollContainer/LevelsContainer/Gravity Gone"]
+layout_mode = 2
+
+[node name="1" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Gravity Gone/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "1
+"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "GG_1"
+
+[node name="2" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Gravity Gone/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "2
+"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "GG_2"
+
+[node name="3" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Gravity Gone/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "3"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "GG_3"
+
+[node name="4" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Gravity Gone/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "4"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "GG_4"
+
+[node name="5" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Gravity Gone/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "5
+"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "GG_5"
+
+[node name="Spacer3" type="Control" parent="Level Select/ScrollContainer/LevelsContainer/Gravity Gone"]
+custom_minimum_size = Vector2(0.005, 20)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Mecha Movement" type="VBoxContainer" parent="Level Select/ScrollContainer/LevelsContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="mecha_movement" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Mecha Movement" node_paths=PackedStringArray("level")]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "Mecha Movement"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../..")
+target_level = "mecha_movement"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Level Select/ScrollContainer/LevelsContainer/Mecha Movement"]
+layout_mode = 2
+
+[node name="1" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Mecha Movement/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "1
+"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "MM_1"
+
+[node name="2" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Mecha Movement/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "2
+"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "MM_2"
+
+[node name="3" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Mecha Movement/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "3"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "MM_3"
+
+[node name="4" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Mecha Movement/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "4"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "MM_4"
+
+[node name="5" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Mecha Movement/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "5
+"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "MM_5"
+
+[node name="Spacer4" type="Control" parent="Level Select/ScrollContainer/LevelsContainer/Mecha Movement"]
+custom_minimum_size = Vector2(0.005, 20)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Slippy Slide" type="VBoxContainer" parent="Level Select/ScrollContainer/LevelsContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="slippy_slide" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Slippy Slide" node_paths=PackedStringArray("level")]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "Slippy Slide"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../..")
+target_level = "slippy_slide"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Level Select/ScrollContainer/LevelsContainer/Slippy Slide"]
+layout_mode = 2
+
+[node name="1" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Slippy Slide/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "1
+"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "SS_1"
+
+[node name="2" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Slippy Slide/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "2
+"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "SS_2"
+
+[node name="3" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Slippy Slide/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "3"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "SS_3"
+
+[node name="4" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Slippy Slide/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "4"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "SS_4"
+
+[node name="5" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Slippy Slide/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "5
+"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "SS_5"
+
+[node name="Spacer5" type="Control" parent="Level Select/ScrollContainer/LevelsContainer/Slippy Slide"]
+custom_minimum_size = Vector2(0.005, 20)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Brittle Buttons" type="VBoxContainer" parent="Level Select/ScrollContainer/LevelsContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="brittle_buttons" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Brittle Buttons" node_paths=PackedStringArray("level")]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "Brittle Buttons"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../..")
+target_level = "brittle_buttons"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Level Select/ScrollContainer/LevelsContainer/Brittle Buttons"]
+layout_mode = 2
+
+[node name="1" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Brittle Buttons/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "1
+"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "BB_1"
+
+[node name="2" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Brittle Buttons/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "2
+"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "BB_2"
+
+[node name="3" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Brittle Buttons/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "3"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "BB_3"
+
+[node name="4" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Brittle Buttons/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "4"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "BB_4"
+
+[node name="5" type="Button" parent="Level Select/ScrollContainer/LevelsContainer/Brittle Buttons/HBoxContainer" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "5
+"
+script = ExtResource("3_r8w1v")
+level = NodePath("../../../../../..")
+target_level = "BB_5"
+
+[node name="Spacer3" type="Control" parent="Level Select"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Return" type="Button" parent="Level Select" node_paths=PackedStringArray("menu_controller")]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+shortcut = SubResource("Shortcut_esp4x")
+text = "Return"
+script = ExtResource("3_27bhy")
+menu_controller = NodePath("../../MenuController")
+
+[node name="Spacer4" type="Control" parent="Level Select"]
 layout_mode = 2
 size_flags_vertical = 3

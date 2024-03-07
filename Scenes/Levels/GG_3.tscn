@@ -56,5 +56,6 @@ gravity = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 0.415065, -2.25301, 0)
 level = NodePath("..")
 target_level = "GG_4"
+level_completed = 9
 
 [node name="DeathManager" parent="." instance=ExtResource("8_qmmm6")]
