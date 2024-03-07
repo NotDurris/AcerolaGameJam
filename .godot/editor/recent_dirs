@@ -1,3 +1,4 @@
+res://SceneItems/pushDoor
 res://SceneItems/Camera
 res://Components
 res://SceneItems/Timer
@@ -19,7 +20,6 @@ res://SceneItems/EnvironmentGeometry
 res://Shaders/ObjectShader/Material
 res://SceneItems/Goal
 res://Shaders/ObjectShader
-res://Shaders
 D:/SteamLibrary/steamapps/common/Aseprite
 D:/GodotProjects/WindowsBuild
 D:/GodotProjects/BuiltGame

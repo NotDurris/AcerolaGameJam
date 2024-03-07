@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://bemqbxd64b8t2"]
+
+[ext_resource type="Script" path="res://Scenes/Scripts/Level.gd" id="1_ofuer"]
+[ext_resource type="PackedScene" uid="uid://cnhc0rg5ihi4j" path="res://Player/player.tscn" id="2_e11bn"]
+[ext_resource type="Material" uid="uid://c8pa3hmo1y5sc" path="res://Shaders/ScreenShader/screen_shader.tres" id="3_6swmu"]
+[ext_resource type="PackedScene" uid="uid://hlqab4swufb4" path="res://SceneItems/EnvironmentGeometry/Geometry.tscn" id="4_qr0q5"]
+[ext_resource type="PackedScene" uid="uid://t00ol4bs3rua" path="res://SceneItems/Goal/goal.tscn" id="5_08svb"]
+[ext_resource type="PackedScene" uid="uid://dwflg18dm1s26" path="res://SceneItems/DeathManager/death_manager.tscn" id="6_ih6o4"]
+[ext_resource type="PackedScene" uid="uid://cc67svnik24ux" path="res://SceneItems/pushDoor/push_door.tscn" id="8_3ulo4"]
+[ext_resource type="PackedScene" uid="uid://xkkaumhrsqe0" path="res://SceneItems/Button/button.tscn" id="8_fnyfs"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_0fwjn"]
+material = ExtResource("3_6swmu")
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="1" type="Node3D"]
+process_mode = 1
+script = ExtResource("1_ofuer")
+
+[node name="Player" parent="." instance=ExtResource("2_e11bn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.82268, 0)
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="ScreenShader" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.36822, 0)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_0fwjn")
+skeleton = NodePath("../..")
+
+[node name="SolidObjects" type="Node" parent="."]
+
+[node name="Geometry" parent="SolidObjects" instance=ExtResource("4_qr0q5")]
+transform = Transform3D(27.9327, 0, 0, 0, 1.00363, 0, 0, 0, 7.14611, 0, 0, 0)
+
+[node name="Geometry2" parent="SolidObjects" instance=ExtResource("4_qr0q5")]
+transform = Transform3D(8.37981, 0, 0, 0, 4.43604, 0, 0, 0, 7.14611, 9.7, 1.8, 0)
+
+[node name="Goal" parent="." node_paths=PackedStringArray("level") instance=ExtResource("5_08svb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 9, 6, 0)
+level = NodePath("..")
+target_level = "2"
+
+[node name="DeathManager" parent="." instance=ExtResource("6_ih6o4")]
+
+[node name="Button" parent="." instance=ExtResource("8_fnyfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="PushDoor" parent="." node_paths=PackedStringArray("buttons") instance=ExtResource("8_3ulo4")]
+transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, -8, 1.5, 0)
+buttons = [NodePath("../Button")]

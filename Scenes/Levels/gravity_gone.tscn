@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://bd0jvnx8l2a1q" path="res://Assets/MinimalUI/MinimalUI.tres" id="1_b38vs"]
 [ext_resource type="Script" path="res://Scenes/Scripts/Level.gd" id="1_u4s33"]
 [ext_resource type="Script" path="res://SceneItems/Transition/Transition.gd" id="3_0vain"]
-[ext_resource type="Script" path="res://Scenes/Levels/PlayAnimation.gd" id="5_06sfx"]
+[ext_resource type="Script" path="res://Components/PlayAnimation.gd" id="5_06sfx"]
 
 [sub_resource type="Animation" id="Animation_2l7pa"]
 resource_name = "play_through"

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dx88onu2ajmvy" path="res://Colour/colour_randomiser.tscn" id="3_gk25y"]
 [ext_resource type="Script" path="res://SceneItems/Transition/Transition.gd" id="4_1ecg3"]
 [ext_resource type="Script" path="res://Components/spiralling.gd" id="4_wm6e0"]
-[ext_resource type="Script" path="res://Scenes/Levels/PlayAnimation.gd" id="5_wkmxi"]
+[ext_resource type="Script" path="res://Components/PlayAnimation.gd" id="5_wkmxi"]
 
 [sub_resource type="Animation" id="Animation_2l7pa"]
 resource_name = "play_through"

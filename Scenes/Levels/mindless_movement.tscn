@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/Scripts/Level.gd" id="2_hmmj6"]
 [ext_resource type="PackedScene" uid="uid://dx88onu2ajmvy" path="res://Colour/colour_randomiser.tscn" id="3_rtsi3"]
 [ext_resource type="Script" path="res://SceneItems/Transition/Transition.gd" id="4_hx36h"]
-[ext_resource type="Script" path="res://Scenes/Levels/PlayAnimation.gd" id="5_jpvnk"]
+[ext_resource type="Script" path="res://Components/PlayAnimation.gd" id="5_jpvnk"]
 
 [sub_resource type="Animation" id="Animation_2l7pa"]
 resource_name = "play_through"

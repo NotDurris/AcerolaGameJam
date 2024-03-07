@@ -5,6 +5,9 @@ extends Node3D
 @export var preset : bool = true
 @export var speed : float = 1.0
 
+@export var pushable : bool = false
+var body : CharacterBody3D
+
 var progress : float = 0.0
 
 @onready var door_body = $StaticBody3D
@@ -19,12 +22,21 @@ var sources : int:
 			opened = false
 
 func _ready():
+	if pushable:
+		add_to_group("box")
+		if $StaticBody3D is CharacterBody3D:
+			body = $StaticBody3D
+		else:
+			print("WARNING: door not characterbody3D")
 	move_to_start_pos()
 	Signals.connect("reset", move_to_start_pos)
 	setup_buttons()
 
 func setup_buttons():
 	for button in buttons:
+		if button == null:
+			print("WARNING door button set to null " + get_node(".").name)
+			continue
 		button.connect("pressed", add_state)
 		button.connect("released", remove_state)
 
@@ -60,3 +72,8 @@ func add_state():
 
 func remove_state():
 	sources -= 1
+
+func push_box(direction : Vector3, _body : CharacterBody3D):
+	var MAX_SPEED = 20.0
+	body.velocity.x = clamp(direction.x, -MAX_SPEED, MAX_SPEED)
+	body.velocity.z = clamp(direction.z, -MAX_SPEED, MAX_SPEED)
