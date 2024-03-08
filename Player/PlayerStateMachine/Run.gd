@@ -38,7 +38,7 @@ func physics_update(delta : float) -> void:
 			var collision = player.get_slide_collision(i)
 			var collider = collision.get_collider()
 			
-			if collider.is_in_group("box"):
+			if collider.is_in_group("box") and not player.standing_on_box():
 				state_machine.transition_to("Push")
 	
 	# Handle other transitions

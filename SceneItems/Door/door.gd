@@ -59,10 +59,16 @@ func _physics_process(delta: float) -> void:
 	var state = opened
 	if reverse:
 		state = !state
-	if state and progress > 0:
-		progress -= delta * speed / scale.y
-	elif progress < 1:
-		progress += delta * speed / scale.y
+	if state:
+		if progress > 0:
+			progress -= delta * speed / scale.y
+		else:
+			progress = 0
+	else:
+		if progress < 1:
+			progress += delta * speed / scale.y
+		else:
+			progress = 1
 	
 	door_body.scale.y = lerp(0.001, 1.0, progress)
 	door_body.position.y = lerp(-0.5, 0.0, progress)

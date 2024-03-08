@@ -1,3 +1,5 @@
+res://Colour
+res://Audio
 res://Components
 res://SceneItems/pushDoor
 res://SceneItems/Camera
@@ -12,14 +14,12 @@ res://SceneItems/Transition
 res://Scenes/Levels
 res://SceneItems/Button
 res://SceneItems/Door
-res://Colour
 res://SceneItems/DeathManager
 res://SceneItems/FadingEffect
 res://Shaders/ObjectShader/Shader
 res://SceneItems/EnvironmentGeometry
 res://Shaders/ObjectShader/Material
 res://SceneItems/Goal
-res://Shaders/ObjectShader
 D:/SteamLibrary/steamapps/common/Aseprite
 D:/GodotProjects/WindowsBuild
 D:/GodotProjects/BuiltGame

@@ -3,6 +3,7 @@ extends PlayerState
 var blendAmount : float = 0.0
 
 func enter() -> void:
+	player.play_land_audio()
 	player.player_animation.set("parameters/Blend/blend_amount", 1)
 	blendAmount = player.player_animation.get("parameters/Jump/blend_position")
 

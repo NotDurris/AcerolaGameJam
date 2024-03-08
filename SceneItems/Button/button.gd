@@ -6,6 +6,8 @@ signal released
 
 @export var brittle : bool = false
 @export var flipper : bool = false
+@export var button_sound : AudioStreamPlayer
+@export var brittle_sound : AudioStreamPlayer
 var progress : float = 1.0
 
 @onready var btn_mesh = $ButtonMesh
@@ -51,6 +53,9 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		if flipper:
 			body.flip()
 		if sources > 0 and not active:
+			if brittle:
+				brittle_sound.play()
+			button_sound.play()
 			active = true
 
 
@@ -59,5 +64,6 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Player") || body.is_in_group("box"):
 		sources -= 1
 		if sources <= 0 and active:
+			button_sound.play()
 			active = false
 			sources = 0

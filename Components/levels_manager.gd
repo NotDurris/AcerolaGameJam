@@ -6,7 +6,7 @@ extends Control
 func _ready() -> void:
 	var levels_completed = level.level_parameters["LevelsCompleted"]
 	for button in level_buttons:
-		if level_buttons.find(button,0) <= levels_completed:
+		if level_buttons.find(button,0) <= levels_completed+1:
 			button.disabled = false
 			button.show()
 		else:

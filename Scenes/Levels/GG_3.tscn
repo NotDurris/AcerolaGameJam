@@ -20,7 +20,7 @@ process_mode = 1
 script = ExtResource("1_wv4yl")
 
 [node name="Player" parent="." instance=ExtResource("2_rkv37")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.516716, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.493539, 0)
 gravity = false
 
 [node name="Environment" type="Node" parent="."]

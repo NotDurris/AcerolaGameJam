@@ -104,6 +104,7 @@ script = ExtResource("4_ai6f4")
 level = NodePath("..")
 target_level = "AA_1"
 time = 5.0
+level_completed = 34
 
 [node name="Timer" type="Timer" parent="Transition"]
 one_shot = true

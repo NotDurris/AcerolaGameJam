@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://xkkaumhrsqe0"]
+[gd_scene load_steps=7 format=3 uid="uid://xkkaumhrsqe0"]
 
 [ext_resource type="Script" path="res://SceneItems/Button/button.gd" id="1_r87la"]
 [ext_resource type="Material" uid="uid://c158qywkkv1j7" path="res://Shaders/ObjectShader/Material/Mid.tres" id="2_t4nal"]
+[ext_resource type="AudioStream" uid="uid://b3yfrvqyhy0re" path="res://Audio/analog-appliance-button-15-186961.mp3" id="3_spqmf"]
+[ext_resource type="AudioStream" uid="uid://dhr32yel6h0le" path="res://Audio/puffofsmoke-47176.mp3" id="4_sxhng"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yuir5"]
 height = 0.25
@@ -9,8 +11,10 @@ height = 0.25
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bsxub"]
 height = 0.5
 
-[node name="Button" type="Node3D"]
+[node name="Button" type="Node3D" node_paths=PackedStringArray("button_sound", "brittle_sound")]
 script = ExtResource("1_r87la")
+button_sound = NodePath("ClickSound")
+brittle_sound = NodePath("BreakSound")
 
 [node name="ButtonMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
@@ -22,6 +26,18 @@ surface_material_override/0 = ExtResource("2_t4nal")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249756, 0)
 shape = SubResource("CylinderShape3D_bsxub")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_spqmf")
+volume_db = -12.0
+pitch_scale = 0.4
+bus = &"SFX"
+
+[node name="BreakSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_sxhng")
+volume_db = -8.0
+pitch_scale = 0.6
+bus = &"SFX"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

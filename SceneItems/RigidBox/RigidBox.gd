@@ -46,7 +46,16 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.y -= 64 * delta
 	if not gravity:
-		velocity.y = 0
+		if flipped:
+			if velocity.y < 0:
+				velocity.y += 64 * delta
+			else:
+				velocity.y = 0
+		else:
+			if velocity.y > 0:
+				velocity.y -= 64 * delta
+			else:
+				velocity.y = 0
 	move_and_slide()
 	var ground_velocity = Vector2(velocity.x, velocity.z)
 	if ground_velocity != Vector2.ZERO:

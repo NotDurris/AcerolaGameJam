@@ -104,6 +104,7 @@ script = ExtResource("4_hqoop")
 level = NodePath("..")
 target_level = "MainMenu"
 time = 5.0
+level_completed = 40
 
 [node name="Timer" type="Timer" parent="Transition"]
 one_shot = true

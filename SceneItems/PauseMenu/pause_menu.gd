@@ -12,8 +12,10 @@ func pause():
 	anim.play("pause")
 
 func unpause():
-	get_tree().paused = false
 	anim.play("unpause")
+
+func set_time_paused_state(value : bool):
+	get_tree().paused = value
 
 func quit() -> void:
 	get_tree().quit()

@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0put1fnre838"]
+[gd_scene load_steps=7 format=3 uid="uid://d0put1fnre838"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/scene_switcher.gd" id="1_0bfse"]
 [ext_resource type="PackedScene" uid="uid://bl3va7wxk0qct" path="res://Scenes/Levels/MainMenu.tscn" id="2_sam1q"]
-[ext_resource type="AudioStream" uid="uid://bc0058ngkudx5" path="res://Audio/basebeats.wav" id="3_102tp"]
 [ext_resource type="Script" path="res://Audio/MusicManager.gd" id="3_lonto"]
-[ext_resource type="AudioStream" uid="uid://cbdpcsno40gsp" path="res://Audio/additionalbeats.wav" id="5_yftfh"]
+[ext_resource type="AudioStream" uid="uid://dlym72ufl00px" path="res://Audio/background_music.wav" id="5_b4qna"]
 [ext_resource type="PackedScene" uid="uid://cgcaslleaiim1" path="res://SceneItems/FadingEffect/fade_manager.tscn" id="6_v0tfl"]
 [ext_resource type="Script" path="res://Components/mouse_lock.gd" id="7_5srlo"]
 
@@ -19,17 +18,13 @@ process_mode = 3
 
 [node name="MusicManager" type="Node" parent="." node_paths=PackedStringArray("music_components")]
 script = ExtResource("3_lonto")
-music_components = [NodePath("BaseMusic"), NodePath("BaseMusic2")]
+music_components = [NodePath("BaseMusic")]
 
 [node name="BaseMusic" type="AudioStreamPlayer" parent="MusicManager"]
-stream = ExtResource("3_102tp")
+stream = ExtResource("5_b4qna")
 volume_db = -80.0
 autoplay = true
-
-[node name="BaseMusic2" type="AudioStreamPlayer" parent="MusicManager"]
-stream = ExtResource("5_yftfh")
-volume_db = -80.0
-autoplay = true
+bus = &"Music"
 
 [node name="MouseLock" type="Node" parent="."]
 script = ExtResource("7_5srlo")

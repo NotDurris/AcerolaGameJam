@@ -12,6 +12,7 @@
 material = ExtResource("2_h56hb")
 
 [node name="RigidBox" type="CharacterBody3D" groups=["box"]]
+collision_layer = 3
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true

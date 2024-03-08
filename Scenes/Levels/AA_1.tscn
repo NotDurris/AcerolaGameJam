@@ -48,7 +48,8 @@ transform = Transform3D(2, 0, 0, 0, 0.5, 0, 0, 0, 2, -9.73053, 4.14267, 0)
 [node name="Goal" parent="." node_paths=PackedStringArray("level") instance=ExtResource("5_iyl58")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 8.6, 3.7, 0)
 level = NodePath("..")
-target_level = "2"
+target_level = "pushable_parts"
+level_completed = 35
 
 [node name="DeathManager" parent="." instance=ExtResource("6_3edvq")]
 

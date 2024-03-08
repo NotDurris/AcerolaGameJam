@@ -1,5 +1,9 @@
-ScrollContainer
 Node
+AudioStreamPlayer
+CPUParticles3D
+RayCast3D
+MarginContainer
+ScrollContainer
 CenterContainer
 VScrollBar
 HBoxContainer
@@ -8,8 +12,3 @@ GridContainer
 ColorRect
 RichTextLabel
 CharacterBody3D
-Camera3D
-Label
-Control
-Node3D
-AnimationPlayer

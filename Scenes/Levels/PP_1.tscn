@@ -14,7 +14,7 @@ material = ExtResource("3_6swmu")
 flip_faces = true
 size = Vector2(2, 2)
 
-[node name="1" type="Node3D"]
+[node name="PP_1" type="Node3D"]
 process_mode = 1
 script = ExtResource("1_ofuer")
 
@@ -40,7 +40,8 @@ transform = Transform3D(8.37981, 0, 0, 0, 4.43604, 0, 0, 0, 7.14611, 9.7, 1.8, 0
 [node name="Goal" parent="." node_paths=PackedStringArray("level") instance=ExtResource("5_08svb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 9, 6, 0)
 level = NodePath("..")
-target_level = "2"
+target_level = "complete_chaos"
+level_completed = 37
 
 [node name="DeathManager" parent="." instance=ExtResource("6_ih6o4")]
 
