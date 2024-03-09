@@ -34,7 +34,13 @@ func physics_update(delta : float) -> void:
 			
 			if collider is RigidBox:
 				pushed = true
-				collider.push_box(-collision.get_normal(0) * player.PUSH_FORCE, player)
+				var pushdir = -collision.get_normal(0)
+				pushdir.y = 0
+				if abs(pushdir.x) > abs(pushdir.z):
+					pushdir.z = 0
+				else:
+					pushdir.x = 0
+				collider.push_box(pushdir * player.PUSH_FORCE, player)
 	
 	# Handle other transitions
 	if Input.is_action_just_pressed("primary_action") or not player.jump_buffer.is_stopped():

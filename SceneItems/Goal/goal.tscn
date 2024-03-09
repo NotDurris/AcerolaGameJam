@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://SceneItems/Goal/goal.gd" id="1_2oahh"]
 [ext_resource type="Material" uid="uid://ct2cmt0cj58ko" path="res://Shaders/ObjectShader/Material/Jaggy.tres" id="1_pu6c8"]
-[ext_resource type="AudioStream" uid="uid://li0bfcq41x0d" path="res://Audio/LevelUp.wav" id="3_crqck"]
+[ext_resource type="AudioStream" uid="uid://nid63mbayafe" path="res://Audio/goal_complete.wav" id="3_u4o6m"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_vx86s"]
 
@@ -47,6 +47,7 @@ shape = SubResource("SphereShape3D_i6cl3")
 
 [node name="GoalAquiredSound" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("3_crqck")
+stream = ExtResource("3_u4o6m")
+bus = &"SFX"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

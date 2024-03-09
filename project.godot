@@ -29,6 +29,8 @@ Signals="*res://Globals/Signals.gd"
 
 [display]
 
+window/size/viewport_width=630
+window/size/viewport_height=500
 window/stretch/mode="viewport"
 
 [input]

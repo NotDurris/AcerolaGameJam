@@ -33,6 +33,9 @@ var line_colour = Color.WEB_GRAY
 		jaggy_mat.set_shader_parameter("colour", line_colour)
 		screen_mat.set_shader_parameter("background_line_colour", Color.from_hsv(complemen2ry_colour.x, complemen2ry_colour.y-0.4,complemen2ry_colour.z-0.4))
 
+func delay_randomise_colour():
+	await get_tree().create_timer(2.0).timeout
+	colour = colour
 
 func rgb2hsv(rgb_colour : Color) -> Vector3:
 	var r = rgb_colour.r

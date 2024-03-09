@@ -14,3 +14,12 @@ res://Scenes/Levels/MainMenu.tscn
 res://SceneItems/Goal/goal.tscn
 res://Audio/btn_click_sound.tscn
 res://Scenes/scene_switcher.tscn
+res://Scenes/Levels/PP_1.tscn
+res://SceneItems/Button/button.tscn
+res://SceneItems/Goal/goal.gd
+res://Player/player.tscn
+res://Player/PlayerStateMachine/Push.gd
+res://Menu/BtnClickSound.gd
+res://Colour/ColourController.gd
+res://Scenes/Scripts/ButtonChangeLevel.gd
+res://Scenes/Levels/thumbnail.tscn

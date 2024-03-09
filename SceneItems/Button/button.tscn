@@ -29,13 +29,13 @@ shape = SubResource("CylinderShape3D_bsxub")
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_spqmf")
-volume_db = -12.0
+volume_db = -25.0
 pitch_scale = 0.4
 bus = &"SFX"
 
 [node name="BreakSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_sxhng")
-volume_db = -8.0
+volume_db = -16.0
 pitch_scale = 0.6
 bus = &"SFX"
 

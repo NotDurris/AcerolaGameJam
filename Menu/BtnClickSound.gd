@@ -4,8 +4,8 @@ extends Node
 @onready var click_sound := $BtnClick
 
 func _ready() -> void:
-	for btn in btns:
-		btn.connect("pressed", play_click_sound)
+	for button in btns:
+		button.connect("pressed", play_click_sound)
 
 func play_click_sound():
 	click_sound.play()
