@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dst120xts62mw"]
+[gd_scene load_steps=18 format=3 uid="uid://dst120xts62mw"]
 
 [ext_resource type="Theme" uid="uid://bd0jvnx8l2a1q" path="res://Assets/MinimalUI/MinimalUI.tres" id="1_kpx0y"]
 [ext_resource type="Script" path="res://SceneItems/PauseMenu/pause_menu.gd" id="2_d4bor"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/Scripts/ButtonChangeLevel.gd" id="5_scd5d"]
 [ext_resource type="PackedScene" uid="uid://cgcaslleaiim1" path="res://SceneItems/FadingEffect/fade_manager.tscn" id="6_6efyl"]
 [ext_resource type="Material" uid="uid://dk1qq81gww524" path="res://Shaders/ScreenShader/pause_menu.tres" id="6_c785t"]
+[ext_resource type="PackedScene" uid="uid://bp0lekehrykhu" path="res://Audio/btn_click_sound.tscn" id="8_c2m5q"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yna8p"]
 
@@ -249,6 +250,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_kpx0y")
 script = ExtResource("2_d4bor")
+bus_name = "Music"
 
 [node name="MenuBackground" type="TextureRect" parent="."]
 visible = false
@@ -354,6 +356,9 @@ text = "quit"
 libraries = {
 "": SubResource("AnimationLibrary_wmy2a")
 }
+
+[node name="BtnClickSound" parent="." node_paths=PackedStringArray("btns") instance=ExtResource("8_c2m5q")]
+btns = [NodePath("../MenuBackground/Buttons/MarginContainer/VBoxContainer/Resume"), NodePath("../MenuBackground/Buttons/MarginContainer/VBoxContainer/Restart"), NodePath("../MenuBackground/Buttons/MarginContainer/VBoxContainer/Main Menu"), NodePath("../MenuBackground/Buttons/MarginContainer/VBoxContainer/Quit")]
 
 [connection signal="pressed" from="MenuBackground/Buttons/MarginContainer/VBoxContainer/Resume" to="." method="unpause"]
 [connection signal="pressed" from="MenuBackground/Buttons/MarginContainer/VBoxContainer/Restart" to="." method="unpause"]

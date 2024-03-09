@@ -2,6 +2,12 @@ extends Node
 
 @export var controller_body : PlayerController
 @export var remoted_bodies : Array[CharacterBody3D]
+@export var remoted_bodies_holder : Node
+
+func _ready() -> void:
+	if remoted_bodies_holder != null:
+		for child in remoted_bodies_holder.get_children():
+			remoted_bodies.append(child)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

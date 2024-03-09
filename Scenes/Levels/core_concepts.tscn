@@ -8,7 +8,7 @@
 
 [sub_resource type="Animation" id="Animation_2l7pa"]
 resource_name = "play_through"
-length = 5.0
+length = 7.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -28,10 +28,10 @@ tracks/1/path = NodePath("VBoxContainer/Label2:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1, 1.6, 2.4, 3.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.1, 1.6, 2.4, 3.2, 4, 4.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -40,10 +40,22 @@ tracks/2/path = NodePath("VBoxContainer/Label3:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.1, 3.2, 4),
+"times": PackedFloat32Array(0.1, 5, 6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/Label2:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.6, 3.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["the best game...", "a perfect game"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8j1cg"]
@@ -83,14 +95,14 @@ grow_vertical = 2
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "its time to make a game"
+text = "i want to make a game"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "the best game"
+text = "a perfect game"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="VBoxContainer"]
@@ -103,7 +115,7 @@ horizontal_alignment = 1
 script = ExtResource("4_mh7v5")
 level = NodePath("..")
 target_level = "1"
-time = 5.0
+time = 7.0
 
 [node name="Timer" type="Timer" parent="Transition"]
 one_shot = true

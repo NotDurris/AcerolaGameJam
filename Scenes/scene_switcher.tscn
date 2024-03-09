@@ -16,13 +16,13 @@ process_mode = 3
 
 [node name="MainMenu" parent="." instance=ExtResource("2_sam1q")]
 
-[node name="MusicManager" type="Node" parent="." node_paths=PackedStringArray("music_components")]
+[node name="MusicManager" type="Node" parent="." node_paths=PackedStringArray("audio")]
 script = ExtResource("3_lonto")
-music_components = [NodePath("BaseMusic")]
+audio = NodePath("BaseMusic")
 
 [node name="BaseMusic" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("5_b4qna")
-volume_db = -80.0
+volume_db = -15.0
 autoplay = true
 bus = &"Music"
 

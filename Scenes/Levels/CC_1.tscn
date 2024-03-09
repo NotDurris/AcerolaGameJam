@@ -37,8 +37,414 @@ skeleton = NodePath("../..")
 
 [node name="SolidObjects" type="Node" parent="."]
 
+[node name="Buttons" type="Node" parent="SolidObjects"]
+
+[node name="Button" parent="SolidObjects/Buttons" instance=ExtResource("8_50m8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.5, 0)
+brittle = true
+flipper = true
+
+[node name="Button2" parent="SolidObjects/Buttons" instance=ExtResource("8_50m8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 7.5, 3)
+brittle = true
+flipper = true
+
+[node name="Button3" parent="SolidObjects/Buttons" node_paths=PackedStringArray("button_sound", "brittle_sound") instance=ExtResource("8_50m8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 6.5, -5)
+brittle = true
+flipper = true
+button_sound = NodePath("../Button/ClickSound")
+brittle_sound = NodePath("../Button/BreakSound")
+
+[node name="Button4" parent="SolidObjects/Buttons" node_paths=PackedStringArray("button_sound", "brittle_sound") instance=ExtResource("8_50m8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 13.5, -2)
+brittle = true
+flipper = true
+button_sound = NodePath("../Button2/ClickSound")
+brittle_sound = NodePath("../Button2/BreakSound")
+
+[node name="Button5" parent="SolidObjects/Buttons" node_paths=PackedStringArray("button_sound", "brittle_sound") instance=ExtResource("8_50m8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 6.5, -2)
+brittle = true
+flipper = true
+button_sound = NodePath("../Button/ClickSound")
+brittle_sound = NodePath("../Button/BreakSound")
+
+[node name="Button6" parent="SolidObjects/Buttons" node_paths=PackedStringArray("button_sound", "brittle_sound") instance=ExtResource("8_50m8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 13.5, 1)
+brittle = true
+flipper = true
+button_sound = NodePath("../Button2/ClickSound")
+brittle_sound = NodePath("../Button2/BreakSound")
+
+[node name="Doors" type="Node" parent="SolidObjects"]
+
+[node name="PushDoor" parent="SolidObjects/Doors" node_paths=PackedStringArray("buttons") instance=ExtResource("7_162e8")]
+transform = Transform3D(2, 0, 0, 0, 3.2, 0, 0, 0, 2, -16, 0, 0)
+buttons = [NodePath("../../Buttons/Button"), NodePath("../../Buttons/Button6")]
+preset = false
+
+[node name="StaticBody3D" parent="SolidObjects/Doors/PushDoor" index="0"]
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="PushDoor3" parent="SolidObjects/Doors" node_paths=PackedStringArray("buttons") instance=ExtResource("7_162e8")]
+transform = Transform3D(2, 0, 0, 0, 3.2, 0, 0, 0, 2, -18, 7, 0)
+buttons = [NodePath("../../Buttons/Button2"), NodePath("../../Buttons/Button5")]
+preset = false
+
+[node name="StaticBody3D" parent="SolidObjects/Doors/PushDoor3" index="0"]
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="PushDoor2" parent="SolidObjects/Doors" node_paths=PackedStringArray("buttons") instance=ExtResource("7_162e8")]
+transform = Transform3D(4.945, 0, 0, 0, 10.415, 0, 0, 0, 3.495, -4.63765, 1.8477, 0)
+buttons = [NodePath("../../Buttons/Button2"), NodePath("../../Buttons/Button5")]
+speed = 5.0
+
+[node name="StaticBody3D" parent="SolidObjects/Doors/PushDoor2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.13687e-13, 1, -0.586451, 0.0384061, 0)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="PushDoor4" parent="SolidObjects/Doors" node_paths=PackedStringArray("buttons") instance=ExtResource("7_162e8")]
+transform = Transform3D(2, 0, 0, 0, 3.2, 0, 0, 0, 2, -22, 6, -5)
+buttons = [NodePath("../../Buttons/Button"), NodePath("../../Buttons/Button3")]
+preset = false
+
+[node name="StaticBody3D" parent="SolidObjects/Doors/PushDoor4" index="0"]
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="PushDoor5" parent="SolidObjects/Doors" node_paths=PackedStringArray("buttons") instance=ExtResource("7_162e8")]
+transform = Transform3D(2, 0, 0, 0, 3.2, 0, 0, 0, 2, -24, 13, -5)
+buttons = [NodePath("../../Buttons/Button"), NodePath("../../Buttons/Button3")]
+preset = false
+
+[node name="StaticBody3D" parent="SolidObjects/Doors/PushDoor5" index="0"]
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="PushDoor6" parent="SolidObjects/Doors" node_paths=PackedStringArray("buttons") instance=ExtResource("7_162e8")]
+transform = Transform3D(4.945, 0, 0, 0, 10.415, 0, 0, 0, 3.495, -10.6376, 7.8477, -5)
+buttons = [NodePath("../../Buttons/Button2"), NodePath("../../Buttons/Button5")]
+speed = 5.0
+
+[node name="StaticBody3D" parent="SolidObjects/Doors/PushDoor6" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.13687e-13, 1, -0.586451, 0.0384061, 0)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="PushDoor7" parent="SolidObjects/Doors" node_paths=PackedStringArray("buttons") instance=ExtResource("7_162e8")]
+transform = Transform3D(2, 0, 0, 0, 3.2, 0, 0, 0, 2, -9, 6, -2)
+buttons = [NodePath("../../Buttons/Button"), NodePath("../../Buttons/Button3")]
+preset = false
+
+[node name="StaticBody3D" parent="SolidObjects/Doors/PushDoor7" index="0"]
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="PushDoor8" parent="SolidObjects/Doors" node_paths=PackedStringArray("buttons") instance=ExtResource("7_162e8")]
+transform = Transform3D(2, 0, 0, 0, 3.2, 0, 0, 0, 2, -11, 13, -2)
+buttons = [NodePath("../../Buttons/Button"), NodePath("../../Buttons/Button3")]
+preset = false
+
+[node name="StaticBody3D" parent="SolidObjects/Doors/PushDoor8" index="0"]
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="PushDoor9" parent="SolidObjects/Doors" node_paths=PackedStringArray("buttons") instance=ExtResource("7_162e8")]
+transform = Transform3D(4.945, 0, 0, 0, 10.415, 0, 0, 0, 3.495, 2.36235, 7.8477, -2)
+buttons = [NodePath("../../Buttons/Button2"), NodePath("../../Buttons/Button5")]
+speed = 5.0
+
+[node name="StaticBody3D" parent="SolidObjects/Doors/PushDoor9" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.13687e-13, 1, -0.586451, 0.0384061, 0)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="Box" type="Node" parent="SolidObjects"]
+
+[node name="RigidBox2" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 6.8, 0)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox3" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 12.8, -5)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox4" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 12.8, -2)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox5" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8013, 6.8, 4.85073)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox6" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8013, 12.8, -0.149274)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox7" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.80128, 12.8, 2.85073)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox8" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5813, 6.8, 0.191641)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox9" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5813, 12.8, -4.80836)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox10" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.58134, 12.8, -1.80836)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox11" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2016, -1.01983, 0.344946)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox12" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2016, 4.98017, -4.65505)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox13" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2016, 4.98017, -1.65505)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox14" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0029, -1.01983, 5.19567)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox15" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0029, 4.98017, 0.195672)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox16" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00288, 4.98017, 3.19567)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox17" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7829, -1.01983, 0.536587)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox18" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7829, 4.98017, -4.46341)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox19" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.78294, 4.98017, -1.46341)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox20" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2016, 16.2648, 0.344946)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox21" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2016, 22.2648, -4.65505)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox22" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2016, 22.2648, -1.65505)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox23" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0029, 16.2648, 5.19567)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox24" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0029, 22.2648, 0.195672)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox25" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00288, 22.2648, 3.19567)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox26" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7829, 16.2648, 0.536587)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox27" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7829, 22.2648, -4.46341)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="RigidBox28" parent="SolidObjects/Box" instance=ExtResource("9_ext5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.78294, 22.2648, -1.46341)
+gravity = false
+conserve_velocity = true
+sticky = true
+
+[node name="Geometry" type="Node" parent="SolidObjects"]
+
+[node name="Geometry" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.1, -7, 9.8, 0)
+
+[node name="Geometry2" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(0.245763, 0.697166, 5.0996, -0.403687, 3.86166, 0.473298, -0.523268, -2.65173, 2.02999, -22.0519, 7.61256, 0)
+
+[node name="Geometry7" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(0.42506, -3.77873, 0.0096107, 0.206608, 1.05815, 5.12151, -0.523268, -2.65173, 2.02999, 9.1175, -1.42037, -0.27997)
+
+[node name="Geometry3" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.1, -13, 15.8, -5)
+
+[node name="Geometry4" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(0.936917, -7.61908, 0, 0.936917, 7.61908, 0, 0, 0, 3, -8.86235, 12.4523, -5)
+
+[node name="Geometry5" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.1, 0, 15.8, -2)
+
+[node name="Geometry6" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(0.936917, -7.61908, 0, 0.936917, 7.61908, 0, 0, 0, 3, 4.13765, 12.4523, -2)
+
+[node name="Geometry8" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(-0.64863, -0.961212, 1.56027, 0.67653, -0.817508, 2.72091, 0.125167, -0.562462, -6.62108, -12.8854, 1.31462, -7.25574)
+
+[node name="Geometry9" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(-0.281572, 3.08457, -9.61414, -0.766548, 0.950762, 5.9012, 0.347378, 4.59825, 5.22913, -1.02951, -8.13871, -8.44904)
+
+[node name="Geometry10" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(0.510124, -2.44927, -7.54319, -0.5925, 2.37271, -7.11986, 0.788655, 3.36683, -0.469859, -12.6774, 27.4676, -31.8108)
+
+[node name="Geometry11" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(-0.64863, -0.961212, 1.56027, 0.67653, -0.817508, 2.72091, 0.125167, -0.562462, -6.62108, -6.06441, 0.290197, 4.30737)
+
+[node name="Geometry12" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(-1.59399, -0.0975398, 1.50993, 0.142746, -13.0302, 2.63314, -0.316963, -5.37771, -6.4075, -5.70336, 7.3841, -2.86963)
+
+[node name="Geometry13" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(-0.64863, -0.961212, 1.56027, 0.67653, -0.817508, 2.72091, 0.125167, -0.562462, -6.62108, -19.609, 4.26555, 2.36028)
+
+[node name="Geometry14" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(-1.59399, -0.0975398, 1.50993, 0.142746, -13.0302, 2.63314, -0.316963, -5.37771, -6.4075, -19.248, 11.3595, -4.81673)
+
+[node name="Geometry15" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(0.95972, 0.995736, 5.75518, -0.213009, 4.67438, 24.8957, -0.00850229, -4.71127, 25.9172, 20.1076, 20.4425, -81.0363)
+
+[node name="Geometry16" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(2.34803, -0.997838, 8.18482, -1.40627, -14.9005, -0.071994, -7.11915, 2.61424, 2.71373, 4.04725, 7.03263, -70.6421)
+
+[node name="Geometry17" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(-2.83459, 1.36815, 37.5928, -4.73986, -0.982925, 14.4756, -1.91736, 0.407218, -91.3614, -16.4195, -53.9264, -14.8808)
+
+[node name="Geometry18" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(0.95972, 0.995736, 5.75518, -0.213009, 4.67438, 24.8957, -0.00850229, -4.71127, 25.9172, 18.9988, -17.7649, -84.6028)
+
+[node name="Geometry19" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(-6.98851, 5.10583, 3.84725, 7.70912, 2.17866, 16.6424, -5.85342, -3.22659, 17.3253, 21.8536, -0.486394, -30.0461)
+
+[node name="Geometry20" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(0.95972, 0.995736, 5.75518, -0.213009, 4.67438, 24.8957, -0.00850229, -4.71127, 25.9172, 30.5764, 5.84504, -121.433)
+
+[node name="Geometry21" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(-6.98851, 5.10583, 3.84725, 7.70912, 2.17866, 16.6424, -5.85342, -3.22659, 17.3253, 33.4312, 23.1235, -66.8762)
+
+[node name="Geometry22" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(0.95972, 0.995736, 5.75518, -0.213009, 4.67438, 24.8957, -0.00850229, -4.71127, 25.9172, -44.8816, 20.4425, -81.0363)
+
+[node name="Geometry23" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(2.34803, -0.997838, 8.18482, -1.40627, -14.9005, -0.071994, -7.11915, 2.61424, 2.71373, -60.942, 7.03263, -70.6421)
+
+[node name="Geometry24" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(-2.83459, 1.36815, 37.5928, -4.73986, -0.982925, 14.4756, -1.91736, 0.407218, -91.3614, -51.0526, 1.06585, -14.8808)
+
+[node name="Geometry25" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(0.95972, 0.995736, 5.75518, -0.213009, 4.67438, 24.8957, -0.00850229, -4.71127, 25.9172, -45.9904, -17.7649, -84.6028)
+
+[node name="Geometry26" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(-6.98851, 5.10583, 3.84725, 7.70912, 2.17866, 16.6424, -5.85342, -3.22659, 17.3253, -43.1356, -0.486394, -30.0461)
+
+[node name="Geometry27" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(0.95972, 0.995736, 5.75518, -0.213009, 4.67438, 24.8957, -0.00850229, -4.71127, 25.9172, -34.4128, 5.84504, -121.433)
+
+[node name="Geometry28" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(-6.98851, 5.10583, 3.84725, 7.70912, 2.17866, 16.6424, -5.85342, -3.22659, 17.3253, -31.558, 23.1235, -66.8762)
+
+[node name="Geometry29" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(0.805999, 3.67735, -6.04593, -0.242856, 4.02807, 27.6871, 0.507834, -3.91014, 22.8362, -0.442721, 29.1559, -78.1118)
+
+[node name="Geometry30" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(5.51253, -3.53401, 5.61039, -2.34164, -14.4288, 0.000716567, -4.72249, 3.02926, 6.54862, -20.6943, 17.6377, -76.3788)
+
+[node name="Geometry31" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(-2.97586, 1.1636, 53.7828, -5.03115, -0.667229, -33.2919, 0.0963795, 1.09756, -77.2576, -50.8968, 59.4923, -39.5406)
+
+[node name="Geometry32" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(0.805999, 3.67735, -6.04593, -0.242856, 4.02807, 27.6871, 0.507834, -3.91014, 22.8362, -3.02611, -9.14588, -78.3381)
+
+[node name="Geometry33" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(-2.29523, 6.21011, -4.04162, 7.1524, 1.60356, 18.5084, -9.27941, -0.300055, 15.2656, -26.8495, 14.5855, -31.9442)
+
+[node name="Geometry34" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(0.805999, 3.67735, -6.04593, -0.242856, 4.02807, 27.6871, 0.507834, -3.91014, 22.8362, 27.7971, 9.39484, -105.799)
+
+[node name="Geometry35" parent="SolidObjects/Geometry" instance=ExtResource("11_yuffa")]
+transform = Transform3D(-2.29523, 6.21011, -4.04162, 7.1524, 1.60356, 18.5084, -9.27941, -0.300055, 15.2656, 3.9737, 33.1262, -59.4049)
+
 [node name="Goal" parent="." node_paths=PackedStringArray("level") instance=ExtResource("5_u0mwu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, -16, -0.7, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, -12, 8.3, 0)
 level = NodePath("..")
 target_level = "end"
 level_completed = 39
@@ -48,56 +454,20 @@ script = ExtResource("5_f02xb")
 
 [node name="FadeManager" parent="DeathManager" instance=ExtResource("6_s11ca")]
 
-[node name="PushDoor" parent="." node_paths=PackedStringArray("buttons") instance=ExtResource("7_162e8")]
-transform = Transform3D(2, 0, 0, 0, 3.2, 0, 0, 0, 2, -16, 0, 0)
-buttons = [NodePath("../Button")]
-preset = false
-
-[node name="StaticBody3D" parent="PushDoor" index="0"]
-gravity = false
-conserve_velocity = true
-sticky = true
-
-[node name="Button" parent="." instance=ExtResource("8_50m8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.5, 0)
-brittle = true
-flipper = true
-
-[node name="PushDoor2" parent="." node_paths=PackedStringArray("buttons") instance=ExtResource("7_162e8")]
-transform = Transform3D(4.945, 0, 0, 0, 10.415, 0, 0, 0, 3.495, -4.63765, 1.8477, 0)
-buttons = [NodePath("../Button2")]
-speed = 5.0
-
-[node name="StaticBody3D" parent="PushDoor2" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.13687e-13, 1, -0.586451, 0.0384061, 0)
-gravity = false
-conserve_velocity = true
-sticky = true
-
-[node name="Button2" parent="." instance=ExtResource("8_50m8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 7.5, 0)
-brittle = true
-flipper = true
-
-[node name="RigidBox2" parent="." instance=ExtResource("9_ext5a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 6.8, 0)
-gravity = false
-conserve_velocity = true
-sticky = true
-
 [node name="Timer" parent="." node_paths=PackedStringArray("death_manager") instance=ExtResource("10_64l5s")]
 start_time = 30.0
 death_manager = NodePath("../DeathManager")
 
-[node name="RemoteMovement" parent="." node_paths=PackedStringArray("controller_body", "remoted_bodies") instance=ExtResource("11_b7igo")]
+[node name="RemoteMovement" parent="." node_paths=PackedStringArray("controller_body", "remoted_bodies_holder") instance=ExtResource("11_b7igo")]
 controller_body = NodePath("../Player")
-remoted_bodies = [NodePath("../RigidBox2")]
+remoted_bodies_holder = NodePath("../SolidObjects/Box")
 
-[node name="Geometry" parent="." instance=ExtResource("11_yuffa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.1, -7, 9.8, 0)
-
-[node name="Geometry2" parent="." instance=ExtResource("11_yuffa")]
-transform = Transform3D(0.936917, -7.61908, 0, 0.936917, 7.61908, 0, 0, 0, 3, -2.86235, 6.4523, 0)
-
-[editable path="PushDoor"]
-[editable path="PushDoor2"]
+[editable path="SolidObjects/Doors/PushDoor"]
+[editable path="SolidObjects/Doors/PushDoor3"]
+[editable path="SolidObjects/Doors/PushDoor2"]
+[editable path="SolidObjects/Doors/PushDoor4"]
+[editable path="SolidObjects/Doors/PushDoor5"]
+[editable path="SolidObjects/Doors/PushDoor6"]
+[editable path="SolidObjects/Doors/PushDoor7"]
+[editable path="SolidObjects/Doors/PushDoor8"]
+[editable path="SolidObjects/Doors/PushDoor9"]

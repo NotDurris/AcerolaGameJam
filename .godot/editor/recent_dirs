@@ -1,5 +1,6 @@
-res://Colour
 res://Audio
+D:/GodotProjects/GameBase25D/windows
+res://Colour
 res://Components
 res://SceneItems/pushDoor
 res://SceneItems/Camera
@@ -19,7 +20,3 @@ res://SceneItems/FadingEffect
 res://Shaders/ObjectShader/Shader
 res://SceneItems/EnvironmentGeometry
 res://Shaders/ObjectShader/Material
-res://SceneItems/Goal
-D:/SteamLibrary/steamapps/common/Aseprite
-D:/GodotProjects/WindowsBuild
-D:/GodotProjects/BuiltGame

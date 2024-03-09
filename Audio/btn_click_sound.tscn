@@ -1,19 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp0lekehrykhu"]
+[gd_scene load_steps=3 format=3 uid="uid://bp0lekehrykhu"]
 
 [ext_resource type="Script" path="res://Menu/BtnClickSound.gd" id="1_nvtic"]
-[ext_resource type="AudioStream" uid="uid://bbhhmtw1mb4p1" path="res://Audio/selectSound.wav" id="2_6783h"]
-[ext_resource type="AudioStream" uid="uid://05ukolcurhfv" path="res://Audio/btnHover.wav" id="3_4xmko"]
+[ext_resource type="AudioStream" uid="uid://raibfgxi4ijq" path="res://Audio/pickupMeat.wav" id="2_b8vyr"]
 
 [node name="BtnClickSound" type="Node" node_paths=PackedStringArray("btns")]
 script = ExtResource("1_nvtic")
-btns = [NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("")]
+btns = [null, null, null, null, null]
 
 [node name="BtnClick" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_6783h")
-volume_db = -22.0
-bus = &"SFX"
-
-[node name="BtnHover" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_4xmko")
-volume_db = -22.0
+stream = ExtResource("2_b8vyr")
+volume_db = -26.0
+pitch_scale = 0.4
 bus = &"SFX"

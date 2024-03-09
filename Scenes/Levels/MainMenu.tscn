@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bl3va7wxk0qct"]
+[gd_scene load_steps=19 format=3 uid="uid://bl3va7wxk0qct"]
 
 [ext_resource type="Theme" uid="uid://bd0jvnx8l2a1q" path="res://Assets/MinimalUI/MinimalUI.tres" id="1_0jg7n"]
 [ext_resource type="Script" path="res://Scenes/Scripts/Level.gd" id="1_4te7s"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Components/level_restriction.gd" id="8_fq4ej"]
 [ext_resource type="Script" path="res://Components/levels_manager.gd" id="9_heye2"]
 [ext_resource type="Script" path="res://Colour/colour_setter.gd" id="13_3mr8j"]
+[ext_resource type="PackedScene" uid="uid://bp0lekehrykhu" path="res://Audio/btn_click_sound.tscn" id="14_usvcu"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3tyie"]
 blend_mode = 1
@@ -260,7 +261,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 2
 max_value = 2.0
-step = 0.2
+step = 0.1
 script = ExtResource("4_stwg3")
 bus_name = "Master"
 
@@ -275,7 +276,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 2
 max_value = 2.0
-step = 0.2
+step = 0.1
 script = ExtResource("4_stwg3")
 bus_name = "Music"
 
@@ -290,7 +291,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 2
 max_value = 2.0
-step = 0.2
+step = 0.1
 script = ExtResource("4_stwg3")
 bus_name = "SFX"
 
@@ -1028,3 +1029,6 @@ size_flags_vertical = 3
 
 [node name="ColourSetter" type="Node" parent="."]
 script = ExtResource("13_3mr8j")
+
+[node name="BtnClickSound" parent="." node_paths=PackedStringArray("btns") instance=ExtResource("14_usvcu")]
+btns = [NodePath("../MainMenu/HBoxContainer/Start"), NodePath("../MainMenu/HBoxContainer/Level_Select"), NodePath("../MainMenu/HBoxContainer/Options"), NodePath("../MainMenu/HBoxContainer/Close"), NodePath("../Options/ToggleFullscreen"), NodePath("../Options/Return"), NodePath("../Level Select/ScrollContainer/LevelsContainer/MarginContainer/Core Concepts/core_concepts"), NodePath("../Level Select/ScrollContainer/LevelsContainer/MarginContainer/Core Concepts/HBoxContainer/1"), NodePath("../Level Select/ScrollContainer/LevelsContainer/MarginContainer/Core Concepts/HBoxContainer/2"), NodePath("../Level Select/ScrollContainer/LevelsContainer/MarginContainer/Core Concepts/HBoxContainer/3"), NodePath("../Level Select/ScrollContainer/LevelsContainer/MarginContainer/Core Concepts/HBoxContainer/4"), NodePath("../Level Select/ScrollContainer/LevelsContainer/MarginContainer/Core Concepts/HBoxContainer/5"), NodePath("../Level Select/Return")]
