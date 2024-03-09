@@ -23,3 +23,4 @@ res://Menu/BtnClickSound.gd
 res://Colour/ColourController.gd
 res://Scenes/Scripts/ButtonChangeLevel.gd
 res://Scenes/Levels/thumbnail.tscn
+res://Scenes/Levels/adhesive_avatar.tscn
