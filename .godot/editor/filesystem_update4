@@ -24,3 +24,7 @@ res://Colour/ColourController.gd
 res://Scenes/Scripts/ButtonChangeLevel.gd
 res://Scenes/Levels/thumbnail.tscn
 res://Scenes/Levels/adhesive_avatar.tscn
+res://Player/PlayerStateMachine/Jump.gd
+res://Components/shadow_controller.gd
+res://Shaders/ObjectShader/Shader/player_shadow.gdshader
+res://Scenes/Levels/GG_5.tscn

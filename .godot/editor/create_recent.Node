@@ -1,3 +1,4 @@
+MeshInstance3D
 Label3D
 Node
 AudioStreamPlayer
@@ -12,4 +13,3 @@ VBoxContainer
 GridContainer
 ColorRect
 RichTextLabel
-CharacterBody3D

@@ -1,7 +1,8 @@
+res://Shaders/ObjectShader/Shader
+res://Components
 D:/GodotProjects/GameBase25D/windows
 res://Audio
 res://Colour
-res://Components
 res://SceneItems/pushDoor
 res://SceneItems/Camera
 res://SceneItems/Timer
@@ -17,6 +18,5 @@ res://SceneItems/Button
 res://SceneItems/Door
 res://SceneItems/DeathManager
 res://SceneItems/FadingEffect
-res://Shaders/ObjectShader/Shader
 res://SceneItems/EnvironmentGeometry
 res://Shaders/ObjectShader/Material

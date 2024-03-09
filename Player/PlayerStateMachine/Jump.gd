@@ -41,11 +41,13 @@ func physics_update(delta : float) -> void:
 	
 	player.apply_gravity(delta)
 	if Input.is_action_pressed("secondary_action"):
-		if player.velocity.length() <= player.RUNSPEED:
-			player.set_move_direction(player.get_move_direction() * player.RUNSPEED)
+		player.set_move_direction(player.get_move_direction() * player.RUNSPEED * 2)
+		#if player.velocity.length() <= player.RUNSPEED:
+			
 	else:
-		if player.velocity.length() <= player.SPEED:
-			player.set_move_direction(player.get_move_direction() * player.SPEED)
+		player.set_move_direction(player.get_move_direction() * player.SPEED * 2)
+		#if player.velocity.length() <= player.SPEED:
+			
 	player.move_and_slide()
 	
 	# Handle collisions
