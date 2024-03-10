@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bl3va7wxk0qct"]
+[gd_scene load_steps=20 format=3 uid="uid://bl3va7wxk0qct"]
 
 [ext_resource type="Theme" uid="uid://bd0jvnx8l2a1q" path="res://Assets/MinimalUI/MinimalUI.tres" id="1_0jg7n"]
 [ext_resource type="Script" path="res://Scenes/Scripts/Level.gd" id="1_4te7s"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Components/levels_manager.gd" id="9_heye2"]
 [ext_resource type="Script" path="res://Colour/colour_setter.gd" id="13_3mr8j"]
 [ext_resource type="PackedScene" uid="uid://bp0lekehrykhu" path="res://Audio/btn_click_sound.tscn" id="14_usvcu"]
+[ext_resource type="Script" path="res://Components/menu_reminder_controls.gd" id="15_c7tab"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3tyie"]
 blend_mode = 1
@@ -1031,3 +1032,25 @@ script = ExtResource("13_3mr8j")
 
 [node name="BtnClickSound" parent="." node_paths=PackedStringArray("btns") instance=ExtResource("14_usvcu")]
 btns = [NodePath("../MainMenu/HBoxContainer/Start"), NodePath("../MainMenu/HBoxContainer/Level_Select"), NodePath("../MainMenu/HBoxContainer/Options"), NodePath("../MainMenu/HBoxContainer/Close"), NodePath("../Options/ToggleFullscreen"), NodePath("../Options/Return"), NodePath("../Level Select/ScrollContainer/LevelsContainer/MarginContainer/Core Concepts/core_concepts"), NodePath("../Level Select/ScrollContainer/LevelsContainer/MarginContainer/Core Concepts/HBoxContainer/1"), NodePath("../Level Select/ScrollContainer/LevelsContainer/MarginContainer/Core Concepts/HBoxContainer/2"), NodePath("../Level Select/ScrollContainer/LevelsContainer/MarginContainer/Core Concepts/HBoxContainer/3"), NodePath("../Level Select/ScrollContainer/LevelsContainer/MarginContainer/Core Concepts/HBoxContainer/4"), NodePath("../Level Select/ScrollContainer/LevelsContainer/MarginContainer/Core Concepts/HBoxContainer/5"), NodePath("../Level Select/Return")]
+
+[node name="ControlsReminder" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsReminder"]
+layout_mode = 2
+theme_override_constants/margin_right = 10
+
+[node name="Label" type="Label" parent="ControlsReminder/MarginContainer"]
+layout_mode = 2
+script = ExtResource("15_c7tab")
+keyboard_text = "arrow keys + z"
+controller_text = "left joystick + a"

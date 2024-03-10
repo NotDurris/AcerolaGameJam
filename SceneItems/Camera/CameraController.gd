@@ -6,21 +6,33 @@ extends Camera3D
 @export_flags_3d_physics var wall_collision_layers : int
 
 var previous_mat
+var target_y
+var look_at_pos
+var new_look
 
 func _ready() -> void:
 	global_position = position_target.global_position
-	look_at(look_target.global_position)
+	
+	look_at_pos = look_target.global_position
+	new_look = look_at_pos.y
+	look_at(look_at_pos)
 
 func _physics_process(delta: float) -> void:
 	detect_wall_collision()
 	
-	look_at(look_target.global_position)
+	look_at_pos.x = look_target.global_position.x
+	look_at_pos.y = lerp(look_at_pos.y, new_look, 3*delta)
+	look_at_pos.z = look_target.global_position.z
+	look_at(look_at_pos)
 	
 	var target_position = Vector3(position_target.global_position.x, global_position.y, position_target.global_position.z)
 	global_position = lerp(global_position, target_position, delta * move_speed)
 	
 	if look_target.landed:
-		global_position.y = lerp(global_position.y, position_target.global_position.y, delta)
+		target_y = position_target.global_position.y
+		new_look = look_target.global_position.y
+	
+	global_position.y = lerp(global_position.y, target_y, 3*delta)
 
 func detect_wall_collision():
 	var query = PhysicsRayQueryParameters3D.new()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://boqbewyiyramc"]
+[gd_scene load_steps=10 format=3 uid="uid://boqbewyiyramc"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/Level.gd" id="1_i60ck"]
 [ext_resource type="PackedScene" uid="uid://hlqab4swufb4" path="res://SceneItems/EnvironmentGeometry/Geometry.tscn" id="2_4rnyl"]
 [ext_resource type="PackedScene" uid="uid://cnhc0rg5ihi4j" path="res://Player/player.tscn" id="2_xdxes"]
 [ext_resource type="Material" uid="uid://c8pa3hmo1y5sc" path="res://Shaders/ScreenShader/screen_shader.tres" id="5_8x6oi"]
+[ext_resource type="Script" path="res://Components/input_type_changer.gd" id="8_nhauw"]
 [ext_resource type="FontFile" uid="uid://d3wg8t37qwin7" path="res://Assets/MinimalUI/OpenSans-Regular.ttf" id="9_yustc"]
 [ext_resource type="PackedScene" uid="uid://dwflg18dm1s26" path="res://SceneItems/DeathManager/death_manager.tscn" id="13_g1c6d"]
 [ext_resource type="PackedScene" uid="uid://t00ol4bs3rua" path="res://SceneItems/Goal/goal.tscn" id="14_motim"]
@@ -47,3 +48,6 @@ render_priority = 10
 text = "arrow keys"
 font = ExtResource("9_yustc")
 font_size = 167
+script = ExtResource("8_nhauw")
+keyboard_text = "arrow keys"
+controller_text = "left joystick"

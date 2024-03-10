@@ -1,12 +1,12 @@
-res://Shaders/ObjectShader/Shader
-res://Components
 D:/GodotProjects/GameBase25D/windows
+res://Components
+res://Globals
+res://Shaders/ObjectShader/Shader
 res://Audio
 res://Colour
 res://SceneItems/pushDoor
 res://SceneItems/Camera
 res://SceneItems/Timer
-res://Globals
 res://Scenes/Scripts
 res://Shaders/ScreenShader
 res://SceneItems/PauseMenu

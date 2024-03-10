@@ -26,6 +26,7 @@ buses/default_bus_layout="res://Audio/default_bus_layout.tres"
 
 Colour="*res://Colour/ColourController.gd"
 Signals="*res://Globals/Signals.gd"
+Variables="*res://Globals/Variables.gd"
 
 [display]
 
