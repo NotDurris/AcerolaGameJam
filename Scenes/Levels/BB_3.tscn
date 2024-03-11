@@ -23,47 +23,47 @@ script = ExtResource("1_ucm5a")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4191, 0.536953, 0)
 
 [node name="Skeleton3D" parent="Player/Armature" index="0"]
-bones/0/position = Vector3(0.0392354, 0.0372853, -93.0384)
-bones/0/rotation = Quaternion(-0.685808, -0.26828, 0.248947, 0.629061)
-bones/1/rotation = Quaternion(-0.00765409, 0.0402983, -0.00683103, 0.999135)
-bones/2/rotation = Quaternion(0.0933289, 0.0818465, -0.00786828, 0.992234)
-bones/3/rotation = Quaternion(0.0934726, 0.0818191, -0.00787522, 0.992223)
-bones/4/rotation = Quaternion(0.0486532, -0.00357311, 0.000318486, 0.998809)
-bones/5/rotation = Quaternion(-0.00591133, -0.00353111, 0.00060711, 0.999976)
-bones/7/rotation = Quaternion(-0.57151, -0.419618, 0.597521, -0.374521)
-bones/8/rotation = Quaternion(0.412148, -0.0916884, 0.019146, 0.90629)
-bones/9/rotation = Quaternion(0.0390057, 0.0631129, 0.417685, 0.905558)
-bones/10/rotation = Quaternion(-0.0927735, 0.174146, -0.0348654, 0.97972)
-bones/11/rotation = Quaternion(0.255167, 0.14294, 0.131509, 0.947187)
-bones/12/rotation = Quaternion(-0.00738117, -0.0029615, 0.108837, 0.994028)
-bones/15/rotation = Quaternion(0.0632553, -6.23254e-05, 0.117219, 0.99109)
-bones/16/rotation = Quaternion(0.206657, -0.00233058, -0.00851345, 0.978374)
-bones/19/rotation = Quaternion(0.119026, 0.00687819, -0.0209061, 0.992647)
-bones/20/rotation = Quaternion(0.203381, -0.00132913, 0.0081774, 0.979065)
-bones/23/rotation = Quaternion(0.258485, -0.0131549, -0.0733776, 0.963135)
-bones/24/rotation = Quaternion(0.28946, 0.00206843, 0.0148259, 0.957073)
-bones/27/rotation = Quaternion(0.284754, -0.0120453, -0.106775, 0.952559)
-bones/28/rotation = Quaternion(0.350308, 0.0120742, 0.0373492, 0.935812)
-bones/31/rotation = Quaternion(0.624864, -0.37775, 0.56153, 0.389273)
-bones/32/rotation = Quaternion(0.368893, 0.0949688, 0.212309, 0.899902)
-bones/33/rotation = Quaternion(0.10061, 0.00115873, -0.356972, 0.92868)
-bones/34/rotation = Quaternion(0.129241, -0.0983065, -0.0343722, 0.986129)
-bones/35/rotation = Quaternion(0.202198, -0.00066416, -0.193527, 0.960033)
-bones/36/rotation = Quaternion(-0.00422563, 0.00626838, 0.0866419, 0.996211)
-bones/39/rotation = Quaternion(0.0299017, 0.00895772, -0.0479247, 0.998363)
-bones/40/rotation = Quaternion(0.146106, 0.000300776, 0.018253, 0.989101)
-bones/43/rotation = Quaternion(0.0981129, 0.0035882, -0.0258302, 0.994834)
-bones/44/rotation = Quaternion(0.311964, 0.00146735, -0.0107675, 0.950032)
-bones/47/rotation = Quaternion(0.197024, -0.0127622, 0.0193478, 0.980125)
-bones/48/rotation = Quaternion(0.344045, -0.0031698, -0.0242874, 0.938634)
-bones/52/rotation = Quaternion(0.373624, -0.0134092, -0.0566452, 0.925752)
-bones/55/rotation = Quaternion(0.0782788, 0.197951, 0.97211, -0.0984345)
-bones/56/rotation = Quaternion(-0.305136, 0.12033, -0.0313418, 0.944156)
-bones/57/rotation = Quaternion(0.544947, -0.0657407, -0.00353166, 0.835882)
-bones/58/rotation = Quaternion(0.31442, -0.0682311, -0.00129205, 0.946828)
-bones/60/rotation = Quaternion(-0.123598, -0.00625065, 0.983598, 0.131224)
-bones/61/rotation = Quaternion(-0.285827, 0.0814683, -0.0172603, 0.954656)
-bones/62/rotation = Quaternion(0.657013, 0.108666, 0.0841132, 0.741249)
+bones/0/position = Vector3(-0.0495709, -0.670533, -92.7269)
+bones/0/rotation = Quaternion(-0.684294, -0.268025, 0.250312, 0.630276)
+bones/1/rotation = Quaternion(-0.00503262, 0.0406457, -0.0075477, 0.999132)
+bones/2/rotation = Quaternion(0.0991855, 0.0824141, -0.00920497, 0.991608)
+bones/3/rotation = Quaternion(0.0991867, 0.0823839, -0.0091956, 0.99161)
+bones/4/rotation = Quaternion(0.0439273, -0.00361391, 0.000364421, 0.999028)
+bones/5/rotation = Quaternion(-0.0108077, -0.00358921, 0.000556547, 0.999935)
+bones/7/rotation = Quaternion(-0.586241, -0.401767, 0.600508, -0.366463)
+bones/8/rotation = Quaternion(0.39963, -0.0995676, 0.0218511, 0.910991)
+bones/9/rotation = Quaternion(0.0328239, 0.05736, 0.409148, 0.910071)
+bones/10/rotation = Quaternion(-0.13209, 0.174749, -0.0300653, 0.975249)
+bones/11/rotation = Quaternion(0.257233, 0.141101, 0.139657, 0.945737)
+bones/12/rotation = Quaternion(-0.00728541, -0.00276571, 0.109209, 0.993988)
+bones/15/rotation = Quaternion(0.0207673, -0.00404055, 0.113953, 0.993261)
+bones/16/rotation = Quaternion(0.144969, -0.000833408, -0.0147411, 0.989326)
+bones/19/rotation = Quaternion(0.109584, 0.00876673, -0.0328186, 0.993397)
+bones/20/rotation = Quaternion(0.193476, -0.00131911, 0.00731202, 0.981077)
+bones/23/rotation = Quaternion(0.249538, -0.00910723, -0.0844725, 0.964631)
+bones/24/rotation = Quaternion(0.279593, 0.00206228, 0.0145542, 0.960006)
+bones/27/rotation = Quaternion(0.275153, -0.00744104, -0.117781, 0.95413)
+bones/28/rotation = Quaternion(0.340741, 0.0116443, 0.0375151, 0.939336)
+bones/31/rotation = Quaternion(0.640799, -0.358251, 0.563188, 0.379279)
+bones/32/rotation = Quaternion(0.347069, 0.1118, 0.210308, 0.907091)
+bones/33/rotation = Quaternion(0.0858573, 0.0227091, -0.355037, 0.930624)
+bones/34/rotation = Quaternion(0.12472, -0.112121, -0.045153, 0.984802)
+bones/35/rotation = Quaternion(0.200415, 0.00127496, -0.191303, 0.960851)
+bones/36/rotation = Quaternion(-0.00259753, 0.00573794, 0.0874006, 0.996153)
+bones/39/rotation = Quaternion(0.0436632, 0.00788344, -0.0463828, 0.997938)
+bones/40/rotation = Quaternion(0.193669, 0.00149073, 0.0142422, 0.980963)
+bones/43/rotation = Quaternion(0.098249, 0.00367603, -0.0267261, 0.994796)
+bones/44/rotation = Quaternion(0.277762, 0.0012845, -0.00821422, 0.960614)
+bones/47/rotation = Quaternion(0.179478, -0.0133584, 0.0199843, 0.983468)
+bones/48/rotation = Quaternion(0.328044, -0.00303028, -0.0233195, 0.94437)
+bones/52/rotation = Quaternion(0.371251, -0.0132949, -0.0565392, 0.926714)
+bones/55/rotation = Quaternion(0.0771306, 0.205247, 0.970407, -0.101167)
+bones/56/rotation = Quaternion(-0.309134, 0.119619, -0.0311683, 0.942951)
+bones/57/rotation = Quaternion(0.544059, -0.0673878, -0.00681299, 0.836309)
+bones/58/rotation = Quaternion(0.314492, -0.0684794, -0.0011406, 0.946786)
+bones/60/rotation = Quaternion(-0.12275, 0.00805941, 0.983967, 0.129137)
+bones/61/rotation = Quaternion(-0.305721, 0.0802532, -0.0189164, 0.948545)
+bones/62/rotation = Quaternion(0.66396, 0.108128, 0.0826443, 0.735279)
 
 [node name="Environment" type="Node" parent="."]
 
@@ -120,7 +120,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107193, 0.254255, 0.0364
 brittle = true
 
 [node name="Door" parent="SolidObjects/ButtonPlatform16" instance=ExtResource("9_jtt5o")]
-transform = Transform3D(-2.02211e-08, -9.96451, -0.758912, 0.5, -4.70772e-07, 0, -8.29328e-09, -4.08674, 1.85042, -5.34434, 0, -2.24945)
+transform = Transform3D(1.256e-08, 17.338, 1.63676, 0.5, -1.31877e-06, 4.04318e-14, 1.78863e-08, 24.6905, -1.14935, 7.71811, -5.72205e-06, 11.2304)
+reverse = true
+speed = 3.0
+
+[node name="ButtonPlatform25" type="Node3D" parent="SolidObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4329, 0.16328, -26.0527)
+script = ExtResource("10_a7p2x")
+
+[node name="Geometry" parent="SolidObjects/ButtonPlatform25" instance=ExtResource("5_hliwk")]
+transform = Transform3D(4, 0, 0, 0, 0.780327, 0, 0, 0, 4, 0, -0.109661, 0)
+
+[node name="Button" parent="SolidObjects/ButtonPlatform25" node_paths=PackedStringArray("button_sound", "brittle_sound") instance=ExtResource("10_8v3ov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107193, 0.254255, 0.0364609)
+brittle = true
+button_sound = NodePath("../../ButtonPlatform16/Button/ClickSound")
+brittle_sound = NodePath("../../ButtonPlatform16/Button/BreakSound")
+
+[node name="Door" parent="SolidObjects/ButtonPlatform25" instance=ExtResource("9_jtt5o")]
+transform = Transform3D(1.59192e-09, 0.984406, 1.99469, 0.5, -5.90759e-07, 4.05516e-14, 2.17976e-08, 13.4791, -0.145676, 0.432482, -5.72205e-06, 7.41323)
 reverse = true
 speed = 3.0
 
@@ -173,7 +191,7 @@ reverse = true
 speed = 3.0
 
 [node name="ButtonPlatform18" type="Node3D" parent="SolidObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.62653, 0.163278, 20.4216)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4296, 0.163278, 11.0414)
 script = ExtResource("10_a7p2x")
 
 [node name="Geometry" parent="SolidObjects/ButtonPlatform18" instance=ExtResource("5_hliwk")]
@@ -186,7 +204,7 @@ button_sound = NodePath("../../ButtonPlatform/Button/ClickSound")
 brittle_sound = NodePath("../../ButtonPlatform/Button/BreakSound")
 
 [node name="Door" parent="SolidObjects/ButtonPlatform18" instance=ExtResource("9_jtt5o")]
-transform = Transform3D(-2.02211e-08, -9.96451, -0.758912, 0.5, -4.70772e-07, 0, -8.29328e-09, -4.08674, 1.85042, -5.34434, 0, -2.24945)
+transform = Transform3D(1.3756e-08, 6.77866, -1.55416, 0.5, -4.70772e-07, 0, -1.69836e-08, -8.36915, -1.2588, 3.47052, 0, -4.42619)
 reverse = true
 speed = 3.0
 
@@ -204,7 +222,25 @@ button_sound = NodePath("../../ButtonPlatform16/Button/ClickSound")
 brittle_sound = NodePath("../../ButtonPlatform16/Button/BreakSound")
 
 [node name="Door" parent="SolidObjects/ButtonPlatform19" instance=ExtResource("9_jtt5o")]
-transform = Transform3D(-2.02211e-08, -9.96451, -0.758912, 0.5, -4.70772e-07, 0, -8.29328e-09, -4.08674, 1.85042, -5.34434, 0, -2.24945)
+transform = Transform3D(-2.09725e-08, -18.5201, 0.562808, 0.5, -8.4363e-07, 3.24522e-14, 6.15027e-09, 5.4311, 1.91918, -9.21556, -2.86102e-06, 2.66339)
+reverse = true
+speed = 3.0
+
+[node name="ButtonPlatform23" type="Node3D" parent="SolidObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.27925, 0.163278, -30.4797)
+script = ExtResource("10_a7p2x")
+
+[node name="Geometry" parent="SolidObjects/ButtonPlatform23" instance=ExtResource("5_hliwk")]
+transform = Transform3D(4, 0, 0, 0, 0.780327, 0, 0, 0, 4, 0, -0.109661, 0)
+
+[node name="Button" parent="SolidObjects/ButtonPlatform23" node_paths=PackedStringArray("button_sound", "brittle_sound") instance=ExtResource("10_8v3ov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107193, 0.254255, 0.0364609)
+brittle = true
+button_sound = NodePath("../../ButtonPlatform16/Button/ClickSound")
+brittle_sound = NodePath("../../ButtonPlatform16/Button/BreakSound")
+
+[node name="Door" parent="SolidObjects/ButtonPlatform23" instance=ExtResource("9_jtt5o")]
+transform = Transform3D(5.06464e-09, 3.4273, 1.94556, 0.5, -6.46491e-07, 2.60534e-14, 2.12608e-08, 14.3874, -0.463462, 1.69358, 0, 8.60996)
 reverse = true
 speed = 3.0
 
@@ -244,6 +280,24 @@ transform = Transform3D(-1.29266e-08, -17.3354, -1.61268, 0.5, -1.28118e-06, -2.
 reverse = true
 speed = 3.0
 
+[node name="ButtonPlatform24" type="Node3D" parent="SolidObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25672, 0.163278, -68.1073)
+script = ExtResource("10_a7p2x")
+
+[node name="Geometry" parent="SolidObjects/ButtonPlatform24" instance=ExtResource("5_hliwk")]
+transform = Transform3D(4, 0, 0, 0, 0.780327, 0, 0, 0, 4, 0, -0.10966, 0)
+
+[node name="Button" parent="SolidObjects/ButtonPlatform24" node_paths=PackedStringArray("button_sound", "brittle_sound") instance=ExtResource("10_8v3ov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107193, 0.254255, 0.0364609)
+brittle = true
+button_sound = NodePath("../../ButtonPlatform3/Button/ClickSound")
+brittle_sound = NodePath("../../ButtonPlatform3/Button/BreakSound")
+
+[node name="Door" parent="SolidObjects/ButtonPlatform24" instance=ExtResource("9_jtt5o")]
+transform = Transform3D(-1.66478e-08, -22.326, 1.29581, 0.5, -1.28118e-06, -2.67303e-14, 1.41605e-08, 18.9902, 1.52344, -11.6958, -2.86102e-06, 9.32475)
+reverse = true
+speed = 3.0
+
 [node name="ButtonPlatform22" type="Node3D" parent="SolidObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.4673, 0.163278, -23.0905)
 script = ExtResource("10_a7p2x")
@@ -258,7 +312,7 @@ button_sound = NodePath("../../ButtonPlatform13/Button/ClickSound")
 brittle_sound = NodePath("../../ButtonPlatform13/Button/BreakSound")
 
 [node name="Door" parent="SolidObjects/ButtonPlatform22" instance=ExtResource("9_jtt5o")]
-transform = Transform3D(1.85634e-08, -24.8947, 1.05563, -0.5, -1.28118e-06, 2.86324e-15, 1.15357e-08, -15.4703, -1.69872, -12.3934, -9.53674e-07, -7.67477)
+transform = Transform3D(-1.8767e-08, 21.7717, -1.02505, -0.5, -1.1083e-06, 4.97592e-13, -1.12014e-08, 12.995, 1.71735, 11.5834, -9.53674e-07, 6.71792)
 reverse = true
 speed = 3.0
 
@@ -354,7 +408,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107193, 0.254255, 0.0364
 brittle = true
 
 [node name="Door" parent="SolidObjects/ButtonPlatform15" instance=ExtResource("9_jtt5o")]
-transform = Transform3D(-2.05156e-08, -13.7846, -0.689548, 0.5, -6.41902e-07, -4.49788e-14, -7.53526e-09, -5.06301, 1.87737, -7.25936, -9.53674e-07, -2.68764)
+transform = Transform3D(-5.54959e-10, -0.257724, -1.99936, 0.5, -4.43671e-07, -3.52653e-14, -2.18486e-08, -10.1467, 0.0507831, -1.01066, -1.43051e-06, -6.6554)
 reverse = true
 speed = 3.0
 
@@ -370,7 +424,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107193, 0.254255, 0.0364
 brittle = true
 
 [node name="Door" parent="SolidObjects/ButtonPlatform9" instance=ExtResource("9_jtt5o")]
-transform = Transform3D(-1.71175e-08, -10.4871, 1.24353, 0.5, -5.85295e-07, -3.33979e-14, 1.35891e-08, 8.32541, 1.56641, -5.65979, -0.0960913, 3.72977)
+transform = Transform3D(-1.71175e-08, -10.4871, 1.24353, 0.5, -5.85295e-07, -3.33979e-14, 1.35891e-08, 8.32541, 1.56641, -5.65979, 0.0152565, 3.72977)
 reverse = true
 speed = 3.0
 
@@ -406,6 +460,24 @@ transform = Transform3D(-1.71175e-08, -11.5014, 1.24353, 0.5, -6.41902e-07, -1.9
 reverse = true
 speed = 3.0
 
+[node name="ButtonPlatform26" type="Node3D" parent="SolidObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.9989, 0.163279, 19.5417)
+script = ExtResource("10_a7p2x")
+
+[node name="Geometry" parent="SolidObjects/ButtonPlatform26" instance=ExtResource("5_hliwk")]
+transform = Transform3D(4, 0, 0, 0, 0.780327, 0, 0, 0, 4, 0, -0.109661, 0)
+
+[node name="Button" parent="SolidObjects/ButtonPlatform26" node_paths=PackedStringArray("button_sound", "brittle_sound") instance=ExtResource("10_8v3ov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107193, 0.254255, 0.0364609)
+brittle = true
+button_sound = NodePath("../../ButtonPlatform14/Button/ClickSound")
+brittle_sound = NodePath("../../ButtonPlatform14/Button/BreakSound")
+
+[node name="Door" parent="SolidObjects/ButtonPlatform26" instance=ExtResource("9_jtt5o")]
+transform = Transform3D(2.01748e-08, 15.411, 0.769173, 0.5, -7.29762e-07, -2.06082e-13, 8.40536e-09, 6.42067, -1.84618, 8.5536, 0.0197583, 4.01866)
+reverse = true
+speed = 3.0
+
 [node name="ButtonPlatform10" type="Node3D" parent="SolidObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.68211, 0.163279, 26.3611)
 script = ExtResource("10_a7p2x")
@@ -434,7 +506,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107193, 0.254255, 0.0364
 brittle = true
 
 [node name="Door" parent="SolidObjects/ButtonPlatform11" instance=ExtResource("9_jtt5o")]
-transform = Transform3D(-2.18553e-08, -14.6847, 0.0126363, 0.5, -6.41902e-07, -3.00152e-14, 1.38095e-10, 0.092782, 1.99996, -7.9701, -9.53674e-07, 0.105467)
+transform = Transform3D(9.39639e-09, 6.31349, -1.80573, 0.5, -6.41902e-07, -2.82367e-14, -1.97327e-08, -13.2585, -0.859856, 2.43749, -9.53674e-07, -7.23096)
 reverse = true
 speed = 3.0
 
@@ -463,3 +535,4 @@ level_completed = 27
 [node name="DeathManager" parent="." instance=ExtResource("7_5l51a")]
 
 [editable path="Player"]
+[editable path="DeathManager"]

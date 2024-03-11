@@ -64,6 +64,7 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Player") || body.is_in_group("box"):
 		sources -= 1
 		if sources <= 0 and active:
-			button_sound.play()
+			if is_inside_tree():
+				button_sound.play()
 			active = false
 			sources = 0

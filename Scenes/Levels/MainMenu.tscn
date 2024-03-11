@@ -1049,7 +1049,14 @@ grow_vertical = 0
 layout_mode = 2
 theme_override_constants/margin_right = 10
 
-[node name="Label" type="Label" parent="ControlsReminder/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlsReminder/MarginContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ControlsReminder/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "controls"
+
+[node name="Label" type="Label" parent="ControlsReminder/MarginContainer/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("15_c7tab")
 keyboard_text = "arrow keys + z"

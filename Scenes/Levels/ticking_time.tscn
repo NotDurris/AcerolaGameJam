@@ -83,17 +83,18 @@ grow_vertical = 2
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "argh, no this is all..."
+text = "arh! all this is..."
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "i need something else..."
+text = "I need something else..."
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0.75)
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Ticking Time"

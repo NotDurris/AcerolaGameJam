@@ -1,3 +1,4 @@
+VBoxContainer
 MarginContainer
 Label
 CenterContainer
@@ -11,4 +12,3 @@ RayCast3D
 ScrollContainer
 VScrollBar
 HBoxContainer
-VBoxContainer

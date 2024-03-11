@@ -83,17 +83,17 @@ grow_vertical = 2
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "ugh, why is this..."
+text = "ugh, why cant I..."
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "nevermind, something else"
+text = "I need something better"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="VBoxContainer"]
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Slippy Slide"

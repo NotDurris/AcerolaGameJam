@@ -17,7 +17,13 @@ func physics_update(delta : float) -> void:
 	player.player_animation.set("parameters/Jump/blend_position", blendAmount)
 	
 	if blendAmount >= 0.65:
-		state_machine.transition_to("Idle")
+		if player.get_move_direction() != Vector3.ZERO:
+			if Input.is_action_pressed("secondary_action"):
+				state_machine.transition_to("Run")
+			else:
+				state_machine.transition_to("Walk")
+		else:
+			state_machine.transition_to("Idle")
 	
 	player.apply_gravity(delta)
 	if Input.is_action_pressed("secondary_action"):
